@@ -1,0 +1,20 @@
+.hero-sec{
+    background-image: url(../../../assets/bg.jpg);
+    width: calc(100vw - 17px);
+    height: calc(100vh - 67px);
+
+}
+
+.hero-sec::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000090;
+}
+
+.hero-text{
+    font-size: 50px;
+}
