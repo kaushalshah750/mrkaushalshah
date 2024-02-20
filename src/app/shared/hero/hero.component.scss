@@ -1,8 +1,7 @@
 .hero-sec{
     background-image: url(../../../assets/bg.jpg);
     width: calc(100vw - 17px);
-    height: calc(100vh - 67px);
-
+    height: calc(100vh - 60px);
 }
 
 .hero-sec::before{
@@ -17,4 +16,10 @@
 
 .hero-text{
     font-size: 50px;
+}
+
+@media screen and (max-width: 480px) {
+    .hero-sec{
+        width: 100vw;
+    }
 }
