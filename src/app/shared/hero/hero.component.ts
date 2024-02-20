@@ -16,8 +16,6 @@ export class HeroComponent {
   typingCallback(that: any) {
     let total_length = that.typewriter_text.length;
     let current_length = that.typewriter_display.length;
-    console.log(total_length)
-    console.log(current_length)
   
     // Typing effect: adding characters
     if (current_length < total_length) {

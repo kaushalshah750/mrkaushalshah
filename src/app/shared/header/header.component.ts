@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   ScrollIntoView(elem: string) {
-    console.log(elem);
     document.querySelector(elem)!.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
