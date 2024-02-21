@@ -6,6 +6,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { HeroComponent } from './shared/hero/hero.component';
 import { BodyComponent } from './shared/body/body.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ExperienceComponent } from './shared/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     HeaderComponent,
     HeroComponent,
     BodyComponent,
-    FooterComponent
+    FooterComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule

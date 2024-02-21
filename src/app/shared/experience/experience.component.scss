@@ -1,0 +1,34 @@
+.address {
+    font-size: 15px;
+}
+
+.company{
+    font-size: 24px;
+}
+
+.experience-txt{
+    font-size: 15px;
+}
+
+.designation{
+    font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    .experience-detail{
+        grid-template-columns: 1fr !important;
+        gap: 0px !important;
+    }
+
+    .experience-designation{
+        display: block !important;
+    }
+
+    .experience-designation h4{
+        margin-bottom: 5px !important;
+    }
+
+    .experience-num{
+        display: none !important;
+    }
+}

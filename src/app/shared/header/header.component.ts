@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  
   ScrollIntoView(elem: string) {
     document.querySelector(elem)!.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
 }
