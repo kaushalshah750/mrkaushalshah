@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class BodyComponent {
 
   openurl(url:string){
-    window.open(url)
+    window.open(url, "_blank")
   }
 
 }
