@@ -1,27 +1,40 @@
-# Codershah
+# Kaushal Shah - Software Developer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+## About Me
 
-## Development server
+Hello! I'm Kaushal Shah, a passionate software developer with a focus on full-stack development. You can find more about my professional journey, skills, and projects on my portfolio website: [www.mrkaushalshah.com](https://www.mrkaushalshah.com/).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Skills
 
-## Code scaffolding
+- **Frontend:** HTML, CSS, Bootstrap, Angular, Vue.js
+- **Backend:** .NET Core
+- **DataBase:** MySQL
+- **Tools:** Azure DevOps
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Experience
 
-## Build
+I have over 2 years of experience working for various company:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Xperate Systems Pvt. Ltd. - Software Developer
 
-## Running unit tests
+- HTML
+- CSS
+- Bootstrap
+- Angular
+- .Net Core
+- MySQL
+- Azure Devops
+- Azure Portal
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Siddhatech Software Services Pvt. Ltd. - Software Developer
 
-## Running end-to-end tests
+- HTML
+- CSS
+- Angular
+- Vue.js
+- Cypress
+- Wordpress
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## More Information
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For more details about my projects and professional journey, please visit [www.mrkaushalshah.com](https://www.mrkaushalshah.com/).
