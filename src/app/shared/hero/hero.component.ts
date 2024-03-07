@@ -6,28 +6,51 @@ import { Component } from '@angular/core';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
-  typewriter_text: string = "Kaushal Shah";
+  typewriter_text: string[] = ["Kaushal Shah", "Software Developer"];
   typewriter_display: string = "";
+  index:number = 0
 
   ngOnInit() {
     this.typingCallback(this);
   }
 
   typingCallback(that: any) {
-    let total_length = that.typewriter_text.length;
+    console.log("typingCallback")
+    console.log(that.index)
+
+    let total_length = that.typewriter_text[that.index].length;
     let current_length = that.typewriter_display.length;
-  
-    // Typing effect: adding characters
+
+    console.log("let worked")
+    console.log(that.index)
+    
     if (current_length < total_length) {
-      that.typewriter_display = that.typewriter_text.substring(0, current_length + 1);
-    }
-    // Clearing the string
-    else {
-      setTimeout(() => {
+      console.log("if works")
+      console.log(that.index)
+      that.typewriter_display = that.typewriter_text[that.index].substring(0, current_length + 1);
+    }else {
+      console.log("else works")
+      console.log(that.index)
+      if(this.index >= 1){
+        this.index = 0
+      }else{
+        this.index = this.index + 1
+      }
+        setTimeout(() => {
         that.typewriter_display = "";
         that.typingCallback(that);
-      }, 2000); // Change 1000 to the desired delay before clearing the string (in milliseconds)
+      }, 2000);
       return;
+    }
+    
+
+    if(this.index >= 1){
+      console.log("index if")
+      this.index = 0
+    }else{
+      console.log("index else")
+      this.index = this.index + 1
+      console.log(this.index)
     }
   
     setTimeout(that.typingCallback, 100, that);

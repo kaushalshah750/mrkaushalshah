@@ -1,10 +1,38 @@
-.hero-sec{
-    background-image: url(../../../assets/bg2.jpg);
-    width: calc(100vw - 17px);
+// .hero-sec{
+//     // background-image: url(../../../assets/bg2.jpg);
+//     width: calc(100vw - 17px);
+//     height: calc(100vh - 60px);
+// }
+
+// .hero-sec::before{
+//     position: absolute;
+//     content: '';
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: #00000090;
+// }
+
+// .hero-text{
+//     font-size: 50px;
+// }
+
+// @media screen and (max-width: 480px) {
+//     .hero-sec{
+//         width: 100vw;
+//     }
+// }
+
+/* Step 4: video-background.component.css */
+.video-container {
+    position: relative;
+    width: 100%;
     height: calc(100vh - 60px);
+    overflow: hidden;
 }
 
-.hero-sec::before{
+.video-container::before{
     position: absolute;
     content: '';
     top: 0;
@@ -14,12 +42,19 @@
     background-color: #00000090;
 }
 
-.hero-text{
-    font-size: 50px;
+#video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
 }
 
-@media screen and (max-width: 480px) {
-    .hero-sec{
-        width: 100vw;
-    }
+.content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
 }
