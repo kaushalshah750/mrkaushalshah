@@ -9,8 +9,19 @@
             <p class="poppins-regular text-secondary">Hello, I am <b>Kaushal Shah</b>, a passionate software developer with over 2 years of experience in full-stack development. My journey in programming began with HTML, CSS, and JavaScript, and has since evolved to include expertise in technologies like TypeScript, Angular, Vue.js, and .NET Core. I'm dedicated to continually expanding my skills and recently embarked on a journey to learn Python.</p>
             <p class="poppins-regular text-secondary">Outside of coding, I'm an avid learner and enjoy staying updated with the latest trends in technology. I'm enthusiastic about problem-solving and leveraging technology to create efficient and innovative solutions. When I'm not immersed in coding, you can find me exploring new hobbies, reading, or connecting with like-minded individuals in the tech community.</p>
             <div class="d-flex">
-                <div class="d-flex align-items-center flex-column">
-                    <img src="../../../assets/icons/Social Media/linkedin.png" class="social-icon pointer" alt="" (click)="openurl('https://www.linkedin.com/in/mrkaushalshah/')">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <img src="../../../assets/icons/Social Media/linkedin.png" class="social-icon pointer" alt="" (click)="openurl('https://www.linkedin.com/in/mrkaushalshah/')">
+                    </div>
+                    <div class="mx-3">
+                        <img src="../../../assets/icons/Social Media/github.png" class="social-icon pointer" alt="" (click)="openurl('https://github.com/kaushalshah750/')">
+                    </div>
+                    <div>
+                        <img src="../../../assets/icons/Social Media/instagram.png" class="social-icon pointer" alt="" (click)="openurl('https://www.instagram.com/tech_brogrammer/')">
+                    </div>
+                    <div class="mx-3">
+                        <img src="../../../assets/icons/Social Media/twitter.png" class="social-icon pointer" alt="" (click)="openurl('https://twitter.com/Mr_KaushalShah/')">
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,6 +54,9 @@
                     <img src="../../../assets/icons/NETCore.png" class="skill-icon" alt="">
                 </div>
                 <div class="d-flex align-items-center flex-column">
+                    <img src="../../../assets/icons/nodejs.png" class="skill-icon" alt="">
+                </div>
+                <div class="d-flex align-items-center flex-column">
                     <img src="../../../assets/icons/devops.png" class="skill-icon" alt="">
                     <h5 class="my-2">Azure Devops</h5>
                 </div>
@@ -55,5 +69,8 @@
     </div>
 </div>
 <div class="bg-accent">
+    <app-projects></app-projects>
+</div>
+<div class="bg-white">
     <app-experience></app-experience>
 </div>

@@ -7,6 +7,7 @@ import { HeroComponent } from './shared/hero/hero.component';
 import { BodyComponent } from './shared/body/body.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ExperienceComponent } from './shared/experience/experience.component';
+import { ProjectsComponent } from './shared/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ExperienceComponent } from './shared/experience/experience.component';
     HeroComponent,
     BodyComponent,
     FooterComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule

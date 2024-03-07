@@ -35,6 +35,10 @@
     grid-template-columns: 2fr 1fr 4fr !important;
 }
 
+.grid-21{
+    grid-template-columns: 2fr 1fr !important;
+}
+
 .g-2{
     grid-template-columns: 1fr 1fr !important;
 }
@@ -55,7 +59,31 @@
     border-radius: 30px;
 }
 
-@media screen and (max-width: 480px) {
+.notab{
+    display: block !important;
+}
+
+.nophone{
+    display: block !important;
+}
+
+/* Responsive design for Tablet */
+@media (max-width: 768px) {
+    .notab{
+      display: none !important;
+    }
+}
+  
+/* Responsive design for phone */
+@media (max-width: 425px) {
+    .grid-21{
+        grid-template-columns: 1fr !important;
+    }
+
+    .nophone{
+      display: none !important;
+    }
+  
     .g-5{
         grid-template-columns: 1fr 1fr !important;
     }
