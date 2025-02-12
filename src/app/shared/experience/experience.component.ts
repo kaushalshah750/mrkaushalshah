@@ -10,8 +10,8 @@ export class ExperienceComponent {
   ngOnInit(){
   }
 
-  calculateYearAndMonthDifference(): { years: number, months: number } {
-    var startDate = new Date('2022-12-19')
+  calculateYearAndMonthDifference(start:string): { years: number, months: number } {
+    var startDate = new Date(start)
     var endDate = new Date()
     const startYear = startDate.getFullYear();
     const startMonth = startDate.getMonth();

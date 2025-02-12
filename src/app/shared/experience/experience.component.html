@@ -1,56 +1,81 @@
 <div id="experience" class="py-5">
     <div class="experience-container container poppins-regular">
         <div class="text-center py-4">
-            <h3 class="poppins-bold">Experience. 2 Years 3 Months</h3>
+            <h3 class="poppins-bold">Work Experience.</h3>
+            <h5>- {{calculateYearAndMonthDifference("2021-10-15").years}} Years {{calculateYearAndMonthDifference("2021-10-15").months}} Months</h5>
         </div>
-        <div class="experience-detail grid g-214 my-4 gap-4">
-            <div class="w-100 experience-designation d-flex justify-content-end">
-                <h4 class="poppins-regular designation text-secondary mb-4">SOFTWARE DEVELOPER</h4>
-            </div>
-            <div class="experience-num d-flex justify-content-center">
-                <div class="poppins-regular text-secondary">2<sup>nd</sup></div>
-            </div>
+        <div class="experience-detail my-4 gap-4">
             <div>
-                <h3 class="company mb-1 poppins-regular text-secondary">Xperate Systems Pvt. Ltd.</h3>
-                <h4 class="address mb-1 poppins-regular text-secondary">Pune, Maharashtra</h4>
-                <h4 class="experience-txt poppins-regular text-secondary">December 2022 - Present ({{calculateYearAndMonthDifference().years}} Year {{calculateYearAndMonthDifference().months}} Month)</h4>
+                <h3 class="company mb-1 poppins-bold text-secondary">Xperate Systems Pvt. Ltd.</h3>
+                <h4 class="address mb-1 poppins-semibold text-secondary">Pune, Maharashtra</h4>
+                <h4 class="experience-txt poppins-semibold text-secondary">Dec 2022 - Present ({{calculateYearAndMonthDifference("2022-12-19").years}} Year {{calculateYearAndMonthDifference("2022-12-19").months}} Month)</h4>
 
                 <div class="my-4">
-                    <ul>
-                        <li><b>E-Quote System:</b> Created a form to collect client data, generate invoices, and store information
-                        in a database. Developed an admin panel for processing invoices, checking duplicates, managing
-                        clients, and approving invoices.</li>
-                        <br>
-                        <li><b>Payment Posting and Approval:</b> Built a custom, role-based admin system where employees
-                        submit invoice slips for manager approval. Implemented Windows Authentication and designed
-                        features based on user roles.</li>
-                    </ul>
+                    <li>Developed multiple full-stack applications using Angular, .NET Core, and Azure DevOps.</li>
+                    <li>Implemented CI/CD pipelines to automate deployments and improve release efficiency</li>
+                </div>
+                <h5 class="poppins-bold">Key Projects at Xperate Systems Pvt. Ltd.:</h5>
+                <div class="my-4">
+                    <h6 class="poppins-bold">1. EQuote System – Invoice Management:</h6> 
+                    <li>Developed a client invoicing & approval system with role-based access.</li> 
+                    <li>Optimized duplicate-checking & client data processing for efficiency.</li> 
+                    <br>
+                    <h6 class="poppins-bold">2. Payment Posting and Approval:</h6> 
+                    <li>Built a role-based invoice submission & approval system with Windows Authentication.</li>
+                    <li>Implemented workflow automation for seamless approvals.</li>
+                    <br>
+                    <h6 class="poppins-bold">3. Case Management System (LegalTech)</h6>
+                    <li>Contributed to a legal case tracking system, ensuring real-time updates & email notifications.</li>
+                    <li>Collaborated with a 14-member team on admin-side development.</li>
+                    <br>
+                    <h6 class="poppins-bold">4. Customer Portal API – Backend Migration</h6>
+                    <li>Migrated VB.NET backend to .NET 9, improving scalability.</li>
+                    <li>Developed secure APIs for customer-side case management.</li>
+                    <br>
+                    <h6 class="poppins-bold">5. Forecasting System – Revenue Prediction (Internal Project)</h6>
+                    <li>Built an invoice-based revenue forecasting tool for financial insights.</li>
+                    <li>Automated billing rate estimations & invoice generation.</li>
+                    <br>
+                    <h6 class="poppins-bold">6. UI Design</h6>
+                    <li>Designed a 5-page UI in Figma for a project, ensuring user-friendly navigation.</li>
+                    <br>
+                    <h6 class="poppins-bold">7. Account Request – Multi-Stage Approval</h6>
+                    <li>Developed a 5-stage receipt approval system with Actionstep API integration.</li>
+                    <li>Led a 2-member team for system enhancements & RPA automation.</li>
+                    <br>
+                    <h6 class="poppins-bold">8. Conflict Check – Identity Verification</h6>
+                    <li>Built a document validation system ensuring secure compliance checks.</li>
+                    <br>
+                    <h6 class="poppins-bold">9. Speech Processing – Middleware Integration</h6>
+                    <li>Developed a middleware API linking SpeechLive with Actionstep.</li>
+                    <li>Implemented S2S authentication & data mapping for speech dictation files.</li>
                 </div>
             </div>
         </div>
-        <div class="experience-detail grid g-214 my-4 gap-4">
-            <div class="experience-designation w-100 d-flex justify-content-end">
-                <h4 class="poppins-regular designation text-secondary mb-4">SOFTWARE DEVELOPER</h4>
-            </div>
-            <div class="experience-num d-flex justify-content-center">
-                <div class="poppins-regular text-secondary">1<sup>st</sup></div>
-            </div>
+        <div class="experience-detail my-5 gap-4">
             <div>
-                <h3 class="company mb-1 poppins-regular text-secondary">Siddhatech Software Services Pvt. Ltd.</h3>
-                <h4 class="address mb-1 poppins-regular text-secondary">Pune, Maharashtra</h4>
-                <h4 class="experience-txt poppins-regular text-secondary">October 2021 - December 2022 (1 Year 2 Month)</h4>
-
+                <h3 class="company mb-1 poppins-bold text-secondary">Siddhatech Software Services Pvt. Ltd.</h3>
+                <h4 class="address mb-1 poppins-semibold text-secondary">Pune, Maharashtra</h4>
+                <h4 class="experience-txt poppins-semibold text-secondary">Oct 2021 - Dec 2022 (1 Year 2 Month)</h4>
+        
+                <div class="my-4">
+                    <li>Developed frontend interfaces using Angular, HTML, and Bootstrap, following design mocks.</li>
+                    <li>Built Cypress automation tests, improving performance and reliability.</li>
+                </div>
+        
+                <h5 class="poppins-bold">Key Projects at Siddhatech Software Services Pvt. Ltd.:</h5>
+        
                 <div class="my-4">
                     <ul>
-                        <li><b>Cargo Shipping:</b> Frontend development with Angular and Cypress automation testing.</li>
+                        <li><b>Cargo Shipping:</b> Developed frontend in Angular and implemented Cypress automation testing for enhanced performance.</li>
                         <br>
-                        <li><b>HRMS Software:</b> Designed UI in Figma and developed with Vue.js. Features include employee management, timesheets, asset management, and project management.</li>
+                        <li><b>HRMS Software:</b> Designed UI in Figma and developed employee management, timesheets, and asset management features using Vue.js.</li>
                         <br>
                         <li><b>Finance:</b> Migrated and optimized code from AngularJS to Vue.js, improving project structure and performance.</li>
                         <br>
                         <li><b>Loan & Banking:</b> Designed and developed UI in Vue.js, integrating with backend APIs for loan management based on company invoices.</li>
                         <br>
-                        <li><b>Online Education Course:</b> Made UI changes and modifications in WordPress.</li>
+                        <li><b>Online Education Course:</b> Implemented UI modifications and enhancements in WordPress.</li>
                     </ul>
                 </div>
             </div>
