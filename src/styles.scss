@@ -39,6 +39,10 @@
     grid-template-columns: 2fr 1fr !important;
 }
 
+.grid-12{
+    grid-template-columns: 1fr 2fr !important;
+}
+
 .g-2{
     grid-template-columns: 1fr 1fr !important;
 }
@@ -72,6 +76,18 @@
     .notab{
       display: none !important;
     }
+
+    .grid-21{
+        grid-template-columns: 1fr !important;
+    }
+
+    .grid-12{
+        grid-template-columns: 1fr !important;
+    }
+
+    .g-5{
+        grid-template-columns: 1fr 1fr 1fr !important;
+    }
 }
   
 /* Responsive design for phone */
@@ -80,10 +96,14 @@
         grid-template-columns: 1fr !important;
     }
 
+    .grid-12{
+        grid-template-columns: 1fr !important;
+    }
+
     .nophone{
       display: none !important;
     }
-  
+
     .g-5{
         grid-template-columns: 1fr 1fr !important;
     }
