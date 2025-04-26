@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "codershah:build:production"
+              "buildTarget": "codershah:build:production"
             },
             "development": {
-              "browserTarget": "codershah:build:development"
+              "buildTarget": "codershah:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "codershah:build"
+            "buildTarget": "codershah:build"
           }
         },
         "test": {
