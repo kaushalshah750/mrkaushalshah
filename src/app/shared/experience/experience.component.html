@@ -1,84 +1,374 @@
-<div id="experience" class="py-5">
-    <div class="experience-container container poppins-regular">
-        <div class="text-center py-4">
-            <h3 class="poppins-bold">Work Experience.</h3>
-            <h5>- {{calculateYearAndMonthDifference("2021-10-15").years}} Years {{calculateYearAndMonthDifference("2021-10-15").months}} Months</h5>
-        </div>
-        <div class="experience-detail my-4 gap-4">
-            <div>
-                <h3 class="company mb-1 poppins-bold text-secondary">Xperate Systems Pvt. Ltd.</h3>
-                <h4 class="address mb-1 poppins-semibold text-secondary">Pune, Maharashtra</h4>
-                <h4 class="experience-txt poppins-semibold text-secondary">Dec 2022 - Present ({{calculateYearAndMonthDifference("2022-12-19").years}} Year {{calculateYearAndMonthDifference("2022-12-19").months}} Month)</h4>
-
-                <div class="my-4">
-                    <li>Developed multiple full-stack applications using Angular, .NET Core, and Azure DevOps.</li>
-                    <li>Implemented CI/CD pipelines to automate deployments and improve release efficiency</li>
-                </div>
-                <h5 class="poppins-bold">Key Projects at Xperate Systems Pvt. Ltd.:</h5>
-                <div class="my-4">
-                    <h6 class="poppins-bold">1. EQuote System – Invoice Management:</h6> 
-                    <li>Developed a client invoicing & approval system with role-based access.</li> 
-                    <li>Optimized duplicate-checking & client data processing for efficiency.</li> 
-                    <br>
-                    <h6 class="poppins-bold">2. Payment Posting and Approval:</h6> 
-                    <li>Built a role-based invoice submission & approval system with Windows Authentication.</li>
-                    <li>Implemented workflow automation for seamless approvals.</li>
-                    <br>
-                    <h6 class="poppins-bold">3. Case Management System (LegalTech)</h6>
-                    <li>Contributed to a legal case tracking system, ensuring real-time updates & email notifications.</li>
-                    <li>Collaborated with a 14-member team on admin-side development.</li>
-                    <br>
-                    <h6 class="poppins-bold">4. Customer Portal API – Backend Migration</h6>
-                    <li>Migrated VB.NET backend to .NET 9, improving scalability.</li>
-                    <li>Developed secure APIs for customer-side case management.</li>
-                    <br>
-                    <h6 class="poppins-bold">5. Forecasting System – Revenue Prediction (Internal Project)</h6>
-                    <li>Built an invoice-based revenue forecasting tool for financial insights.</li>
-                    <li>Automated billing rate estimations & invoice generation.</li>
-                    <br>
-                    <h6 class="poppins-bold">6. UI Design</h6>
-                    <li>Designed a 5-page UI in Figma for a project, ensuring user-friendly navigation.</li>
-                    <br>
-                    <h6 class="poppins-bold">7. Account Request – Multi-Stage Approval</h6>
-                    <li>Developed a 5-stage receipt approval system with Actionstep API integration.</li>
-                    <li>Led a 2-member team for system enhancements & RPA automation.</li>
-                    <br>
-                    <h6 class="poppins-bold">8. Conflict Check – Identity Verification</h6>
-                    <li>Built a document validation system ensuring secure compliance checks.</li>
-                    <br>
-                    <h6 class="poppins-bold">9. Speech Processing – Middleware Integration</h6>
-                    <li>Developed a middleware API linking SpeechLive with Actionstep.</li>
-                    <li>Implemented S2S authentication & data mapping for speech dictation files.</li>
-                </div>
-            </div>
-        </div>
-        <div class="experience-detail my-5 gap-4">
-            <div>
-                <h3 class="company mb-1 poppins-bold text-secondary">Siddhatech Software Services Pvt. Ltd.</h3>
-                <h4 class="address mb-1 poppins-semibold text-secondary">Pune, Maharashtra</h4>
-                <h4 class="experience-txt poppins-semibold text-secondary">Oct 2021 - Dec 2022 (1 Year 2 Month)</h4>
-        
-                <div class="my-4">
-                    <li>Developed frontend interfaces using Angular, HTML, and Bootstrap, following design mocks.</li>
-                    <li>Built Cypress automation tests, improving performance and reliability.</li>
-                </div>
-        
-                <h5 class="poppins-bold">Key Projects at Siddhatech Software Services Pvt. Ltd.:</h5>
-        
-                <div class="my-4">
-                    <ul>
-                        <li><b>Cargo Shipping:</b> Developed frontend in Angular and implemented Cypress automation testing for enhanced performance.</li>
-                        <br>
-                        <li><b>HRMS Software:</b> Designed UI in Figma and developed employee management, timesheets, and asset management features using Vue.js.</li>
-                        <br>
-                        <li><b>Finance:</b> Migrated and optimized code from AngularJS to Vue.js, improving project structure and performance.</li>
-                        <br>
-                        <li><b>Loan & Banking:</b> Designed and developed UI in Vue.js, integrating with backend APIs for loan management based on company invoices.</li>
-                        <br>
-                        <li><b>Online Education Course:</b> Implemented UI modifications and enhancements in WordPress.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div id="experience" class="container mx-auto px-4 sm:px-6">
+  <div class="text-center mb-12">
+    <h3 class="text-3xl sm:text-4xl font-bold font-poppins mb-2">
+      Professional Journey
+    </h3>
+    <div class="flex items-center justify-center gap-2">
+      <span class="h-1 w-10 bg-indigo-600 rounded-full"></span>
+      <h5 class="text-lg sm:text-xl text-gray-600">
+        {{ calculateYearAndMonthDifference("2021-10-15").years }} Years
+        {{ calculateYearAndMonthDifference("2021-10-15").months }} Months
+      </h5>
+      <span class="h-1 w-10 bg-indigo-600 rounded-full"></span>
     </div>
+  </div>
+
+  <!-- Timeline Container -->
+  <div class="max-w-4xl mx-auto">
+    <!-- Xperate Systems -->
+    <div class="mb-12 sm:mb-16 grid md:grid-cols-7 gap-4">
+      <!-- Time period -->
+      <div class="md:col-span-2">
+        <div
+          class="bg-gradient-to-r from-indigo-600 to-purple-600 p-4 rounded-lg text-white shadow-md"
+        >
+          <h4 class="font-bold">Dec 2022 - Present</h4>
+          <p class="text-sm opacity-90">
+            {{ calculateYearAndMonthDifference("2022-12-19").years }} Year
+            {{ calculateYearAndMonthDifference("2022-12-19").months }} Month
+          </p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="md:col-span-5">
+        <div
+          class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-indigo-600"
+        >
+          <div class="flex items-start mb-4">
+            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-indigo-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold text-gray-800">
+                Xperate Systems Pvt. Ltd.
+              </h3>
+              <p class="text-gray-600">Pune, Maharashtra</p>
+            </div>
+          </div>
+
+          <!-- Career progression timeline -->
+          <div class="relative pl-8 mb-6">
+            <div class="absolute left-0 h-full w-0.5 bg-indigo-200"></div>
+
+            <!-- Senior Role -->
+            <div class="relative mb-4">
+              <div
+                class="absolute left-2 top-2 mt-1.5 w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-3 w-3 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <div class="bg-indigo-50 rounded-lg p-3 pl-10">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-indigo-700"
+                    >Senior Software Developer</span
+                  >
+                  <span class="text-xs text-gray-500">Jan 2025 - Present</span>
+                </div>
+                <div class="text-sm text-gray-600 mt-1">
+                  Promoted to Senior role with increased responsibilities in
+                  architecture and team leadership.
+                </div>
+              </div>
+            </div>
+
+            <!-- Initial Role -->
+            <div class="relative">
+              <div
+                class="absolute left-2 top-2 mt-1.5 w-6 h-6 rounded-full bg-indigo-200 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-3 w-3 text-indigo-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3 pl-10">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-gray-700"
+                    >Software Developer</span
+                  >
+                  <span class="text-xs text-gray-500">Dec 2022 - Dec 2024</span>
+                </div>
+                <div class="text-sm text-gray-600 mt-1">
+                  Joined as Software Developer focusing on full-stack
+                  development.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pl-4 border-l-2 border-gray-200 ml-3 mb-6">
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-indigo-600 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span
+                  >Developed multiple full-stack applications using Angular,
+                  .NET Core, and Azure DevOps.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-indigo-600 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span
+                  >Implemented CI/CD pipelines to automate deployments and
+                  improve release efficiency</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="mb-4">
+            <h5 class="font-bold text-lg text-gray-800 mb-3">Key Projects:</h5>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div
+                class="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <h6 class="font-semibold text-indigo-600 mb-2">
+                  EQuote System
+                </h6>
+                <p class="text-sm text-gray-600">
+                  Invoice management system with approval workflows and
+                  duplicate-checking optimization.
+                </p>
+              </div>
+              <div
+                class="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <h6 class="font-semibold text-indigo-600 mb-2">
+                  Payment Posting
+                </h6>
+                <p class="text-sm text-gray-600">
+                  Role-based invoice system with Windows Authentication and
+                  workflow automation.
+                </p>
+              </div>
+              <div
+                class="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <h6 class="font-semibold text-indigo-600 mb-2">
+                  Case Management
+                </h6>
+                <p class="text-sm text-gray-600">
+                  Legal case tracking with real-time updates and team
+                  collaboration for admin-side development.
+                </p>
+              </div>
+              <div
+                class="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <h6 class="font-semibold text-indigo-600 mb-2">
+                  API Migration
+                </h6>
+                <p class="text-sm text-gray-600">
+                  VB.NET to .NET 9 backend migration with secure APIs for
+                  customer-side case management.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 flex justify-end">
+            <span class="text-xs text-gray-500 italic"
+              >Technologies: .NET Core, Angular, Azure DevOps</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Siddhatech Software -->
+    <div class="grid md:grid-cols-7 gap-4">
+      <!-- Time period -->
+      <div class="md:col-span-2">
+        <div
+          class="bg-gradient-to-r from-indigo-600 to-purple-600 p-4 rounded-lg text-white shadow-md"
+        >
+          <h4 class="font-bold">Oct 2021 - Dec 2022</h4>
+          <p class="text-sm opacity-90">1 Year 2 Months</p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="md:col-span-5">
+        <div
+          class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-indigo-600"
+        >
+          <div class="flex items-start mb-4">
+            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-indigo-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold text-gray-800">
+                Siddhatech Software Services Pvt. Ltd.
+              </h3>
+              <p class="text-gray-600">Pune, Maharashtra</p>
+            </div>
+          </div>
+
+          <!-- Position badge -->
+          <div class="mb-5">
+            <div
+              class="inline-block bg-gray-100 border border-gray-300 rounded-full px-4 py-1"
+            >
+              <span class="font-medium text-gray-700">Software Developer</span>
+            </div>
+          </div>
+
+          <div class="pl-4 border-l-2 border-gray-200 ml-3 mb-6">
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-indigo-600 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span
+                  >Developed frontend interfaces using Angular, HTML, and
+                  Bootstrap, following design mocks.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-indigo-600 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span
+                  >Built Cypress automation tests, improving performance and
+                  reliability.</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="mb-4">
+            <h5 class="font-bold text-lg text-gray-800 mb-3">Key Projects:</h5>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div
+                class="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <h6 class="font-semibold text-indigo-600 mb-2">
+                  Cargo Shipping
+                </h6>
+                <p class="text-sm text-gray-600">
+                  Angular frontend with Cypress automation testing for enhanced
+                  performance.
+                </p>
+              </div>
+              <div
+                class="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <h6 class="font-semibold text-indigo-600 mb-2">
+                  HRMS Software
+                </h6>
+                <p class="text-sm text-gray-600">
+                  Figma UI design and Vue.js development for employee management
+                  and timesheets.
+                </p>
+              </div>
+              <div
+                class="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <h6 class="font-semibold text-indigo-600 mb-2">Finance</h6>
+                <p class="text-sm text-gray-600">
+                  AngularJS to Vue.js migration with improved project structure
+                  and performance.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 flex justify-end">
+            <span class="text-xs text-gray-500 italic"
+              >Technologies: Angular, Vue.js, HTML, CSS, Bootstrap</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
