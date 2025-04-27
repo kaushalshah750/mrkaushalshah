@@ -180,169 +180,54 @@
     </div>
 
     <!-- Pricing Section -->
-    <div id="pricing" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold mb-4">Choose Your Perfect Plan</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-            Transparent pricing options to suit businesses of all sizes. Select the package that best fits your needs and budget.
-        </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Starter Plan -->
-        <div class="bg-white rounded-xl overflow-hidden transition-all hover:shadow-xl border border-gray-200">
-            <div class="p-6 border-b border-gray-100">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold">Starter</h3>
-                <div class="py-1 px-3 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">
-                🔥 Popular
+    <section id="pricing" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <hgroup>
+              <h2 class="text-3xl font-bold mb-4">Choose Your Perfect Plan</h2>
+              <p class="text-gray-600 max-w-2xl mx-auto">
+                Transparent pricing options to suit businesses of all sizes. Select the package that best fits your needs and budget.
+              </p>
+            </hgroup>
+          </div>
+      
+          <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-8">
+            <article *ngFor="let plan of plans" [ngClass]="plan.featured ? 'border-2 border-indigo-500 transform scale-105 z-10' : 'border border-gray-200'" class="bg-white rounded-xl overflow-hidden transition-all hover:shadow-xl">
+              <div [ngClass]="plan.gradient ? 'p-6 border-b border-gray-100 bg-gradient-to-r from-indigo-500 to-purple-600 text-white' : 'p-6 border-b border-gray-100'">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-xl font-bold">{{ plan.title }}</h3>
+                  <div class="py-1 px-3 rounded-full text-sm font-medium" [ngClass]="plan.gradient ? 'bg-white text-indigo-700' : 'bg-indigo-100 text-indigo-700'">
+                    {{ plan.tag }}
+                  </div>
                 </div>
-            </div>
-            <div class="mb-4">
-                <span class="text-4xl font-bold">₹5,000</span>
-                <span class="text-gray-500">/project</span>
-            </div>
-            <p class="text-gray-600">
-                Perfect for small businesses or individuals needing a simple online presence.
-            </p>
-
-        </div>
-            <div class="p-6">
-            <ul class="space-y-3">
-                <li class="flex items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                <span>1-page scrollable design</span>
-                </li>
-                <li class="flex items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                <span>Mobile responsive</span>
-                </li>
-                <li class="flex items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                <span>WhatsApp inquiry button</span>
-                </li>
-            </ul>
-            </div>
-            <div class="p-6 pt-0">
-                <button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
-                (click)="openCalendly('starter')">
-                    Schedule Consultation
-                </button>
-            </div>
-        </div>
-        
-        <!-- Pro Plan -->
-        <div class="bg-white rounded-xl overflow-hidden transition-all hover:shadow-xl border-2 border-indigo-500 transform scale-105 z-10">
-            <div class="p-6 border-b border-gray-100 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold">Pro</h3>
-                <div class="py-1 px-3 bg-white text-indigo-700 rounded-full text-sm font-medium">
-                🚀 Recommended
+                <div class="mb-4">
+                  <span class="font-bold" [ngClass]="isInIndia ? 'text-2xl' : 'text-4xl'">{{ isInIndia ? plan.priceIndia : plan.priceIntl }}</span>
+                  <span [ngClass]="plan.gradient ? 'text-indigo-100' : 'text-gray-500'">/project</span>
                 </div>
-            </div>
-            <div class="mb-4">
-                <span class="text-4xl font-bold">₹15,000</span>
-                <span class="text-indigo-100">/project</span>
-            </div>
-            <p class="text-indigo-100">
-                Ideal for businesses requiring a professional multi-page website.
-            </p>
-            </div>
-            <div class="p-6">
+                <p [ngClass]="plan.gradient ? 'text-indigo-100' : 'text-gray-600'">
+                  {{ plan.description }}
+                </p>
+              </div>
+      
+              <div class="p-6">
                 <ul class="space-y-3">
-                    <li class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        <span>3–5 page full website</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        <span>Custom design with images/icons</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        <span>Basic SEO setup</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        <span>Supabase backend for contact forms</span>
-                    </li>
+                  <li *ngFor="let feature of plan.features" class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{{ feature }}</span>
+                  </li>
                 </ul>
-            </div>
-            <div class="p-6 pt-0">
-            <button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
-             (click)="openCalendly('pro')">
-                Schedule Consultation
-            </button>
-            </div>
-        </div>
-        
-        <!-- Premium Plan -->
-        <div class="bg-white rounded-xl overflow-hidden transition-all hover:shadow-xl border border-gray-200">
-            <div class="p-6 border-b border-gray-100">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold">Premium</h3>
-                <div class="py-1 px-3 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">
-                👑 Complete
-                </div>
-            </div>
-            <div class="mb-4">
-                <span class="text-4xl font-bold">₹30,000</span>
-                <span class="text-gray-500">/project</span>
-            </div>
-            <p class="text-gray-600">
-                Full-featured solution for businesses requiring advanced functionality.
-            </p>
-            </div>
-            <div class="p-6">
-                <ul class="space-y-3">
-                    <li class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        <span>Full website + Admin panel (Node.js / Supabase)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        <span>Real-time menu editing / blog posting</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        <span>Booking / inquiry management</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        <span>Analytics + CRM integration</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="p-6 pt-0">
-                <button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
-                    (click)="openCalendly('premium')">
-                    Schedule Consultation
+              </div>
+      
+              <div class="p-6 pt-0">
+                <button type="button" (click)="openCalendly(plan.type)" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
+                  [attr.aria-label]="'Schedule Consultation for ' + plan.title">
+                  Schedule Consultation
                 </button>
-            </div>
+              </div>
+            </article>
+          </div>
         </div>
-        </div>
-    </div>
+    </section>
 </div>

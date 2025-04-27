@@ -10,6 +10,7 @@ import { ProjectsComponent } from './shared/projects/projects.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './shared/home/home.component';
 import { ServicesComponent } from './shared/services/services.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ServicesComponent } from './shared/services/services.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
