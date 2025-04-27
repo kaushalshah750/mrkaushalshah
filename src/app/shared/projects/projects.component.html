@@ -1,71 +1,60 @@
-<div id="projects" class="container mx-auto px-4 sm:px-6 py-16 sm:py-20">
-  <div class="text-center mb-10 sm:mb-16">
+<div class="bg-gray-50">
+  <div id="projects" class="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
+  <div class="text-center mb-4 sm:mb-16">
     <h2 class="text-3xl sm:text-4xl font-bold font-poppins">Projects.</h2>
   </div>
 
   <div
-    class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow"
-  >
+    class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow my-6" *ngFor="let project of projects">
     <div class="grid md:grid-cols-12 gap-6 sm:gap-8 items-center">
       <div class="md:col-span-3 flex justify-center">
         <img
-          src="../../../assets/projects/Pay Your Share/logo-nobg.png"
+          [src]="project.img"
+          [alt]="project.name + ' logo'"
           class="max-h-32 sm:max-h-40"
-          alt="Pay Your Share logo"
         />
       </div>
       <div class="md:col-span-9">
         <h4 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800">
-          Pay Your Share
+          {{ project.name }}
         </h4>
         <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
-          Pay Your Share is an innovative web application designed to simplify
-          group payments and streamline the process of sharing expenses with
-          friends and family. With its intuitive interface and seamless
-          integration of the MEAN stack (MongoDB, Express, Angular, Node.js),
-          Pay Your Share offers users a convenient platform to create groups,
-          split payments, and track dues effortlessly. Say goodbye to the hassle
-          of manual calculations and enjoy a hassle-free payment sharing
-          experience with Pay Your Share.
+          {{project.description}}
         </p>
 
         <h5 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">
           Technology Used:
         </h5>
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6 text-sm sm:text-base"
-        >
-          <div>
-            <p class="mb-1 sm:mb-2">
-              <span class="font-bold">Frontend: </span>
-              <span>HTML, CSS, Bootstrap, Angular</span>
+        <div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2 sm:gap-3 mb-4 sm:mb-6 text-sm sm:text-base">
+            <p class="w-full mb-1 sm:mb-2" *ngFor="let tech of project.technology">
+              <span class="font-bold">{{tech.type}}: </span>
+              <span>{{tech.name}}</span>
             </p>
-            <p class="mb-1 sm:mb-2">
+            <!-- <p class="w-full mb-1 sm:mb-2">
               <span class="font-bold">Backend: </span>
               <span>Node.Js, Express.Js</span>
             </p>
-            <p class="mb-1 sm:mb-2">
+            <p class="w-full mb-1 sm:mb-2">
               <span class="font-bold">Database: </span>
               <span>MongoDB</span>
             </p>
-          </div>
-          <div>
-            <p class="mb-1 sm:mb-2">
+            <p class="w-full mb-1 sm:mb-2">
               <span class="font-bold">Authentication: </span>
               <span>Google Authentication</span>
             </p>
-            <p class="mb-1 sm:mb-2">
+            <p class="w-full mb-1 sm:mb-2">
               <span class="font-bold">Deployment: </span>
               <span>AWS Amplify</span>
-            </p>
+            </p> -->
           </div>
         </div>
 
         <div class="flex flex-wrap gap-3 sm:gap-4">
           <a
-            href="https://github.com/kaushalshah750/Pay-Your-Shares/tree/Node_Project"
+            [href]="project.github"
             target="_blank"
-            class="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm sm:text-base"
+            class="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm sm:text-base" *ngIf="project.github"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -80,9 +69,9 @@
             GitHub
           </a>
           <a
-            href="https://payyourshare.mrkaushalshah.com/"
+            [href]="project.demo"
             target="_blank"
-            class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm sm:text-base"
+            class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm sm:text-base" *ngIf="project.demo"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -104,4 +93,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
