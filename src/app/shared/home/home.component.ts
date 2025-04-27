@@ -26,11 +26,6 @@ export class HomeComponent {
     } else {
       this.skills = [];
     }
-    if (error) {
-      console.error('Error fetching skills:', error);
-    } else {
-      console.log('Fetched skills:', skills);
-    }
   }
 
 }

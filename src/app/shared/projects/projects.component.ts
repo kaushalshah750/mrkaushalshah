@@ -15,19 +15,13 @@ export class ProjectsComponent {
 
     async getProjects() {
         this.projects = await supabase.from('projects').select('*');
-        if (this.projects.error) {
-            console.error('Error fetching projects:', this.projects.error);
-        }
-        else {
-            console.log('Fetched projects:', this.projects.data);
-        }
+
         if (this.projects.data) {
             this.projects = this.projects.data;
         }
         else {
             this.projects = [];
         }
-        console.log('Projects:', this.projects);
     }
 
     async getProjectTechnologies() {
@@ -84,7 +78,6 @@ export class ProjectsComponent {
                     };
                 });
                 this.projects = transformedProjects;
-                console.log('Transformed Projects:', transformedProjects);
             }
 
         }
