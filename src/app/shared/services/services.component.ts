@@ -12,4 +12,7 @@ export class ServicesComponent {
     document.querySelector(elem)!.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  openCalendly(type: string) {
+    window.open('https://calendly.com/kaushalshah750/' + type, '_blank');
+  }
 }

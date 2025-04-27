@@ -66,8 +66,8 @@
 </div>
   
 <!-- Services Overview Section -->
-<div id="services" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+<div id="services" class="bg-white">
+    <div class="container py-16 mx-auto px-4">
         <div class="text-center mb-16">
 
         <h2 class="text-3xl font-bold mb-4">Services I Offer</h2>
@@ -177,10 +177,10 @@
             </ul>
         </div>
     </div>
-</div>
+    </div>
 
-<!-- Pricing Section -->
-<div id="pricing" class="py-16 bg-gray-50">
+    <!-- Pricing Section -->
+    <div id="pricing" class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-16">
         <h2 class="text-3xl font-bold mb-4">Choose Your Perfect Plan</h2>
@@ -231,8 +231,8 @@
             </ul>
             </div>
             <div class="p-6 pt-0">
-                <button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg">
-                <!-- (click)="openCalendly('starter')"> -->
+                <button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
+                (click)="openCalendly('starter')">
                     Schedule Consultation
                 </button>
             </div>
@@ -284,9 +284,8 @@
                 </ul>
             </div>
             <div class="p-6 pt-0">
-            <button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg"
-            >
-             <!-- (click)="openCalendly('pro')"> -->
+            <button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
+             (click)="openCalendly('pro')">
                 Schedule Consultation
             </button>
             </div>
@@ -338,8 +337,8 @@
                 </ul>
             </div>
             <div class="p-6 pt-0">
-                <button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg">
-                <!-- (click)="openCalendly('starter')"> -->
+                <button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
+                    (click)="openCalendly('premium')">
                     Schedule Consultation
                 </button>
             </div>
