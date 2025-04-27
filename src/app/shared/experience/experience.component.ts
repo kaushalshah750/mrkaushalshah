@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-experience',
-    templateUrl: './experience.component.html',
-    styleUrls: ['./experience.component.scss'],
-    standalone: false
+  selector: 'app-experience',
+  templateUrl: './experience.component.html',
+  styleUrls: ['./experience.component.scss'],
+  standalone: false
 })
 export class ExperienceComponent {
 
-  ngOnInit(){
+  ngOnInit() {
   }
 
-  calculateYearAndMonthDifference(start:string): { years: number, months: number } {
+  calculateYearAndMonthDifference(start: string): { years: number, months: number } {
     var startDate = new Date(start)
     var endDate = new Date()
     const startYear = startDate.getFullYear();

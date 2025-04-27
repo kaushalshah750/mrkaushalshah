@@ -1,33 +1,38 @@
-<div class="sticky top-0 z-50 bg-white shadow-md">
-  <div class="container mx-auto py-3 px-4 sm:px-6">
-    <div class="flex justify-between items-center">
-      <div>
-        <h4 class="text-lg sm:text-xl font-bold font-poppins text-gray-800 cursor-pointer" routerLink="/">
-          KAUSHAL SHAH
-        </h4>
-      </div>
-      <div class="flex items-center">
-        <div class="flex space-x-4 sm:space-x-8">
-          <h5
-            class="text-sm sm:text-base text-gray-700 hover:text-indigo-600 transition-colors cursor-pointer font-medium font-poppins"
-            [routerLink]="['projects']"
-          >
-            Projects
-          </h5>
-          <h5
-            class="text-sm sm:text-base text-gray-700 hover:text-indigo-600 transition-colors cursor-pointer font-medium font-poppins"
-            [routerLink]="['services']"
-          >
-            Services
-          </h5>
-          <h5
-            class="text-sm sm:text-base text-gray-700 hover:text-indigo-600 transition-colors cursor-pointer font-medium font-poppins"
-            routerLink="/experience"
-          >
-            Experience
-          </h5>
-        </div>
+<nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200 shadow-sm">
+  <div class="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6">
+    
+    <!-- Logo -->
+    <div>
+      <h4 class="text-xl sm:text-2xl font-extrabold tracking-wide text-gray-800 cursor-pointer transition-transform hover:scale-105" routerLink="/">
+        KAUSHAL SHAH
+      </h4>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="flex items-center">
+      <div class="flex space-x-6 sm:space-x-10 text-gray-700 font-medium text-sm sm:text-base tracking-wide">
+        <a
+          class="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-indigo-500 after:transition-all after:duration-300 hover:after:w-full hover:text-indigo-600 cursor-pointer"
+          [routerLink]="['projects']"
+        >
+          Projects
+        </a>
+
+        <a
+          class="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-indigo-500 after:transition-all after:duration-300 hover:after:w-full hover:text-indigo-600 cursor-pointer"
+          [routerLink]="['services']"
+        >
+          Services
+        </a>
+
+        <a
+          class="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-indigo-500 after:transition-all after:duration-300 hover:after:w-full hover:text-indigo-600 cursor-pointer"
+          routerLink="/experience"
+        >
+          Experience
+        </a>
       </div>
     </div>
+
   </div>
-</div>
+</nav>
