@@ -221,7 +221,7 @@
               </div>
       
               <div class="p-6 pt-0">
-                <button type="button" (click)="openCalendly(plan.type)" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
+                <button type="button" (click)="openCalendly(plan.type, plan.title)" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
                   [attr.aria-label]="'Schedule Consultation for ' + plan.title">
                   Schedule Consultation
                 </button>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 import { GeolocationService } from 'src/app/services/geolocation.service';
 
 @Component({
@@ -79,11 +80,11 @@ export class ServicesComponent {
     }
   ];
 
-
   isInIndia: boolean = true;
 
   constructor(
     private geolocationService: GeolocationService,
+    private analytics: AnalyticsService
   ) { }
 
   ngOnInit() {
@@ -99,11 +100,19 @@ export class ServicesComponent {
     });
   }
 
+  trackConsultationClick(name: string) {
+    this.analytics.sendEvent('button_click', {
+      button_name: name + ' Consultation',
+      location: 'Services Page',
+    });
+  }
+
   ScrollIntoView(elem: string) {
     document.querySelector(elem)!.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  openCalendly(type: string) {
+  openCalendly(type: string, title: string) {
     window.open('https://calendly.com/kaushalshah750/' + type, '_blank');
+    this.trackConsultationClick(title);
   }
 }

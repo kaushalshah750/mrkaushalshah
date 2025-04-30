@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 import { supabase } from 'src/integration/client';
 
 @Component({
@@ -9,6 +10,11 @@ import { supabase } from 'src/integration/client';
 })
 export class ProjectsComponent {
     projects: any;
+
+    constructor(
+        private analytics: AnalyticsService
+    ) { }
+
     async ngOnInit() {
         await this.getProjectTechnologies()
     }
@@ -81,5 +87,19 @@ export class ProjectsComponent {
             }
 
         }
+    }
+
+    trackDemoClick(name: string) {
+        this.analytics.sendEvent('button_click', {
+            button_name: name + ' Demo',
+            location: 'Projects Page',
+        });
+    }
+
+    trackGithubClick(name: string) {
+        this.analytics.sendEvent('button_click', {
+            button_name: name + ' GitHub',
+            location: 'Projects Page',
+        });
     }
 }

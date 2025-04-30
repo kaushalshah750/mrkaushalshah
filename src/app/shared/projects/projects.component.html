@@ -47,6 +47,7 @@
                 [href]="project.github" 
                 target="_blank"
                 class="inline-flex items-center px-5 py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all"
+                (click)="trackGithubClick(project.name)"
               >
               <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +67,7 @@
                 [href]="project.demo" 
                 target="_blank"
                 class="inline-flex items-center px-5 py-2.5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all"
+                (click)="trackDemoClick(project.name)"
               >
               <svg
               xmlns="http://www.w3.org/2000/svg"

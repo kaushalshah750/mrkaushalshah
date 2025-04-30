@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-hero',
@@ -10,6 +11,10 @@ export class HeroComponent {
   typewriter_text: string[] = ["Kaushal Shah", "Software Developer"];
   typewriter_display: string = "";
   index: number = 0
+
+  constructor(
+    private analytics: AnalyticsService
+  ) { }
 
   ngOnInit() {
     this.typingCallback(this);
@@ -49,5 +54,14 @@ export class HeroComponent {
 
   openUrl(url: string) {
     window.open(url, "_blank")
+    this.trackClick('Contact Me');
   }
+
+  trackClick(name: string) {
+    this.analytics.sendEvent('button_click', {
+      button_name: name,
+      location: 'Hero Section',
+    });
+  }
+
 }
