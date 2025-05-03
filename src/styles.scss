@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
-@import './custom-theme.scss';
-@import './custom-format.scss';
+@use "tailwindcss" as *;
+@use './custom-theme.scss' as *;
+@use './custom-format.scss' as *;
 
 
 .font-poppins {

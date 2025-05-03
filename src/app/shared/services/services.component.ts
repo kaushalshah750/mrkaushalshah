@@ -97,14 +97,11 @@ export class ServicesComponent {
   }
 
   ngOnInit() {
-    console.log('Services component initialized');
     this.geolocationService.isInIndia().subscribe((isInIndia) => {
       if (isInIndia) {
         this.isInIndia = true;
-        console.log('User is in India');
       } else {
         this.isInIndia = false;
-        console.log('User is not in India');
       }
     });
   }

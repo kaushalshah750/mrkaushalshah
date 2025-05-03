@@ -55,7 +55,6 @@ export class BlogDetailComponent {
       console.error('Error fetching blogs:', error);
     } else {
       if (projects) {
-        console.log('Fetched blogs:', projects);
         this.blog = projects;
       }
     }
