@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
   <url>
     <loc>https://www.mrkaushalshah.com/</loc>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Experience Page -->
   <url>
     <loc>https://www.mrkaushalshah.com/experience</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Projects Page -->
   <url>
     <loc>https://www.mrkaushalshah.com/projects</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Services Page -->
   <url>
     <loc>https://www.mrkaushalshah.com/services</loc>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Blog Listing Page -->
+  <url>
+    <loc>https://www.mrkaushalshah.com/blogs</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Blog Post: Why Every Small Business Needs a Website -->
+  <url>
+    <loc>https://www.mrkaushalshah.com/blog/why-every-small-business-needs-a-website</loc>
+    <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
