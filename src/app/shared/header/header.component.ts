@@ -10,6 +10,7 @@ import { filter } from 'rxjs';
 })
 export class HeaderComponent {
   isBlogActive = false;
+  isMenuOpen = false;
 
   constructor(private router: Router) {
     this.router.events.pipe(
