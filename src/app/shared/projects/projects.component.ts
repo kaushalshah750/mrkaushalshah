@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { AnalyticsService } from 'src/app/services/analytics.service';
 import { supabase } from 'src/integration/client';
 
@@ -12,8 +13,16 @@ export class ProjectsComponent {
     projects: any;
 
     constructor(
+        private titleService: Title,
+        private metaService: Meta,
         private analytics: AnalyticsService
-    ) { }
+    ) {
+        this.titleService.setTitle('Projects | Kaushal Shah');
+        this.metaService.updateTag({
+            name: 'description',
+            content: 'Showcasing freelance and professional projects by Kaushal Shah, including custom-built websites, full-stack apps, and client solutions.'
+        });
+    }
 
     async ngOnInit() {
         await this.getProjectTechnologies()

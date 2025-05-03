@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { AnalyticsService } from 'src/app/services/analytics.service';
 import { supabase } from 'src/integration/client';
 
@@ -12,8 +13,16 @@ export class HomeComponent {
   skills: any[] = [];
 
   constructor(
+    private titleService: Title,
+    private metaService: Meta,
     private analytics: AnalyticsService
-  ) { }
+  ) {
+    this.titleService.setTitle('Kaushal Shah | Full-Stack Developer & Freelancer');
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Explore the portfolio of Kaushal Shah — full-stack developer with expertise in Angular, .NET Core, DevOps, and modern web technologies. Hire for freelance projects or collaborations.'
+    });
+  }
 
   ngOnInit() {
     this.getSkills()

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { AnalyticsService } from 'src/app/services/analytics.service';
 import { GeolocationService } from 'src/app/services/geolocation.service';
 
@@ -83,9 +84,17 @@ export class ServicesComponent {
   isInIndia: boolean = true;
 
   constructor(
+    private titleService: Title,
+    private metaService: Meta,
     private geolocationService: GeolocationService,
     private analytics: AnalyticsService
-  ) { }
+  ) {
+    this.titleService.setTitle('Web Development Services | Kaushal Shah');
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Offering website development, landing pages, admin panels, and digital presence setup for startups and small businesses.'
+    });
+  }
 
   ngOnInit() {
     console.log('Services component initialized');

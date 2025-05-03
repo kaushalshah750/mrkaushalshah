@@ -1,0 +1,26 @@
+<main class="min-h-screen bg-gray-50 py-12 px-6 sm:px-12 lg:px-32">
+    <div class="max-w-4xl mx-auto">
+      <article class="bg-white rounded-2xl shadow-xl p-8 sm:p-10">
+        <header class="mb-10">
+          <h1 class="text-4xl font-extrabold text-gray-900 leading-tight tracking-tight">
+            {{blog.title}}<br />
+            <span class="block text-lg font-medium text-gray-600 mt-2" *ngIf="blog.sub_title">{{blog.sub_title}}</span>
+          </h1>
+        </header>
+  
+        <section class="space-y-6 text-gray-800" [innerHTML]="blog.content"></section>
+
+        <div class="text-center mt-10">
+            <a href="mailto:kaushalshah750@gmail.com" class="inline-block bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition">
+              📩 Contact Me Now – Free Website Audit
+            </a>
+        </div>
+          
+  
+        <footer class="mt-12 pt-6 border-t flex flex-col sm:flex-row justify-between text-sm text-gray-500">
+          <span>Category: <span class="font-medium text-gray-700">{{blog.category.category}}</span></span>
+          <span>Uploaded: <span class="font-medium text-gray-700">{{blog.created_at | date : 'dd MMM YYYY'}}</span></span>
+        </footer>
+      </article>
+    </div>
+  </main>

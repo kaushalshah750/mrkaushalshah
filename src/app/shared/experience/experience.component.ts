@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-experience',
@@ -10,6 +11,18 @@ export class ExperienceComponent {
 
   ngOnInit() {
   }
+
+  constructor(
+    private titleService: Title,
+    private metaService: Meta,
+  ) {
+    this.titleService.setTitle('Experience | Kaushal Shah');
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'A detailed timeline of Kaushal Shah’s professional journey, highlighting roles, skills, and technologies used at top companies in India.'
+    });
+  }
+
 
   calculateYearAndMonthDifference(start: string): { years: number, months: number } {
     var startDate = new Date(start)

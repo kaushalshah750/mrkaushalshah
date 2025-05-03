@@ -34,6 +34,65 @@ export type Database = {
   }
   public: {
     Tables: {
+      blogs: {
+        Row: {
+          category_id: number | null
+          content: string | null
+          created_at: string
+          excerpt: string | null
+          id: number
+          meta_desc: string | null
+          slug: string | null
+          sub_title: string | null
+          title: string | null
+        }
+        Insert: {
+          category_id?: number | null
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: number
+          meta_desc?: string | null
+          slug?: string | null
+          sub_title?: string | null
+          title?: string | null
+        }
+        Update: {
+          category_id?: number | null
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: number
+          meta_desc?: string | null
+          slug?: string | null
+          sub_title?: string | null
+          title?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blogs_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "category"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      category: {
+        Row: {
+          category: string
+          id: number
+        }
+        Insert: {
+          category: string
+          id?: number
+        }
+        Update: {
+          category?: string
+          id?: number
+        }
+        Relationships: []
+      }
       project_technology: {
         Row: {
           id: string
