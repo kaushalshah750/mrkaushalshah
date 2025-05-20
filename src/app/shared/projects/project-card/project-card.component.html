@@ -1,0 +1,45 @@
+<div
+  class="bg-white rounded-2xl my-4 shadow-md overflow-hidden flex flex-col transition-all duration-300"
+>
+  <!-- Header -->
+  <div class="p-4 ">
+    <div class="flex justify-center items-center mb-4">
+      <img [src]="project.img" [alt]="project.name + ' logo'" class=""  />
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ project.name }}</h3>
+      <p class="text-sm text-gray-600 mb-4">{{ project.shortDescription }}</p>
+
+      <!-- Detailed Description -->
+      <div *ngIf="project.description">
+        <div class="text-sm text-gray-700 project-description" [innerHTML]="project.description"></div>
+      </div>
+
+      <!-- Features -->
+      <div *ngIf="project.features?.length" class="mt-4">
+        <p class="font-semibold text-gray-700 mb-1">Key Features:</p>
+        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+          <li *ngFor="let feature of project.features">{{ feature }}</li>
+        </ul>
+      </div>
+
+      <!-- Tech Stack -->
+      <div *ngIf="project.technology" class="mt-4">
+        <p class="font-semibold text-gray-700 mb-1">Tech Stack:</p>
+        <div class="flex flex-wrap gap-2">
+          <ng-container *ngFor="let type of techTypes">
+            <ng-container *ngIf="project.technology[type]">
+              <span *ngFor="let tech of project.technology[type]" class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs font-medium">{{ tech }}</span>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-4 flex gap-3">
+        <a *ngIf="project.github" [href]="project.github" target="_blank" class="px-4 py-1.5 text-xs font-medium bg-gray-800 text-white rounded-md hover:bg-gray-700">GitHub</a>
+        <a *ngIf="project.demo" [href]="project.demo" target="_blank" class="px-4 py-1.5 text-xs font-medium bg-indigo-600 text-white rounded-md hover:bg-indigo-500">Live Demo</a>
+      </div>
+    </div>
+  </div>
+</div>

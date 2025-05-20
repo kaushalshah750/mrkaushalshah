@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { AnalyticsService } from 'src/app/services/analytics.service';
 import { supabase } from 'src/integration/client';
+import { ProjectCardComponent } from './project-card/project-card.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-projects',
@@ -11,6 +13,21 @@ import { supabase } from 'src/integration/client';
 })
 export class ProjectsComponent {
     projects: any;
+    expandedId: string | null = null; // <- Add this
+    techTypes = ['frontend', 'backend', 'database', 'deployment', 'authentication'];
+    showAllTech: { [projectId: string]: boolean } = {};
+
+    toggleShowTech(projectId: string): void {
+        this.showAllTech[projectId] = !this.showAllTech[projectId];
+    }
+
+    hasOverflowTech(technology: Record<string, string[]>): boolean {
+        let count = 0;
+        for (const key in technology) {
+            count += technology[key].length;
+        }
+        return count > 6; // Arbitrary cutoff
+    }
 
     constructor(
         private titleService: Title,
@@ -65,22 +82,18 @@ export class ProjectsComponent {
             if (projects) {
                 // Transforming the fetched data
                 const transformedProjects = projects.map(project => {
-                    const techTypeMap: any = {};
+                    const techTypeMap: Record<string, string[]> = {};
 
                     project.project_technology.forEach(pt => {
                         const tech = pt.technology;
                         if (tech) {
-                            if (!techTypeMap[tech.type]) {
-                                techTypeMap[tech.type] = [];
+                            const key = tech.type.toLowerCase(); // Normalize type to lowercase
+                            if (!techTypeMap[key]) {
+                                techTypeMap[key] = [];
                             }
-                            techTypeMap[tech.type].push(tech.name);
+                            techTypeMap[key].push(tech.name);
                         }
                     });
-
-                    const technology = Object.entries(techTypeMap).map(([type, names]) => ({
-                        type,
-                        name: names
-                    }));
 
                     return {
                         id: project.id,
@@ -89,7 +102,7 @@ export class ProjectsComponent {
                         img: project.img,
                         github: project.github,
                         demo: project.demo,
-                        technology
+                        technology: techTypeMap // 👈 now a flat object
                     };
                 });
                 this.projects = transformedProjects;

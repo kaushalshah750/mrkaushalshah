@@ -12,6 +12,7 @@ import { HomeComponent } from './shared/home/home.component';
 import { ServicesComponent } from './shared/services/services.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogsComponent } from './shared/blogs/blogs.component';
+import { ProjectCardComponent } from './shared/projects/project-card/project-card.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BlogsComponent } from './shared/blogs/blogs.component';
     ExperienceComponent,
     HomeComponent,
     ProjectsComponent,
+    ProjectCardComponent,
     ServicesComponent,
     BlogsComponent,
   ],
