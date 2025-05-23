@@ -6,6 +6,7 @@ import { ExperienceComponent } from './shared/experience/experience.component';
 import { ServicesComponent } from './shared/services/services.component';
 import { BlogsComponent } from './shared/blogs/blogs.component';
 import { BlogDetailComponent } from './shared/blogs/blog-detail/blog-detail.component';
+import { ProjectDetailComponent } from './shared/projects/project-detail/project-detail.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'projects',
     component: ProjectsComponent
+  },
+  {
+    path: 'projects/:projectId',
+    component: ProjectDetailComponent
   },
   {
     path: 'services',

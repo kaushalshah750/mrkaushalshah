@@ -1,45 +1,45 @@
-<div
-  class="bg-white rounded-2xl my-4 shadow-md overflow-hidden flex flex-col transition-all duration-300"
->
-  <!-- Header -->
-  <div class="p-4 ">
-    <div class="flex justify-center items-center mb-4">
-      <img [src]="project.img" [alt]="project.name + ' logo'" class=""  />
-    </div>
-    <div>
-      <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ project.name }}</h3>
-      <p class="text-sm text-gray-600 mb-4">{{ project.shortDescription }}</p>
+<div class="group relative bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer transition-all duration-300 ease-out hover:-translate-y-1 border border-gray-100" (click)="navigateToProject(project.project_id)">
 
-      <!-- Detailed Description -->
-      <div *ngIf="project.description">
-        <div class="text-sm text-gray-700 project-description" [innerHTML]="project.description"></div>
-      </div>
-
-      <!-- Features -->
-      <div *ngIf="project.features?.length" class="mt-4">
-        <p class="font-semibold text-gray-700 mb-1">Key Features:</p>
-        <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-          <li *ngFor="let feature of project.features">{{ feature }}</li>
-        </ul>
-      </div>
-
-      <!-- Tech Stack -->
-      <div *ngIf="project.technology" class="mt-4">
-        <p class="font-semibold text-gray-700 mb-1">Tech Stack:</p>
-        <div class="flex flex-wrap gap-2">
-          <ng-container *ngFor="let type of techTypes">
-            <ng-container *ngIf="project.technology[type]">
-              <span *ngFor="let tech of project.technology[type]" class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs font-medium">{{ tech }}</span>
-            </ng-container>
-          </ng-container>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="mt-4 flex gap-3">
-        <a *ngIf="project.github" [href]="project.github" target="_blank" class="px-4 py-1.5 text-xs font-medium bg-gray-800 text-white rounded-md hover:bg-gray-700">GitHub</a>
-        <a *ngIf="project.demo" [href]="project.demo" target="_blank" class="px-4 py-1.5 text-xs font-medium bg-indigo-600 text-white rounded-md hover:bg-indigo-500">Live Demo</a>
+  <!-- Image Container - Fixed aspect ratio thumbnail -->
+  <div class="relative overflow-hidden h-40 bg-gray-50">
+    <img 
+      [src]="project.img"
+      [alt]="project.name + ' logo'"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+    />
+    <!-- Overlay on hover -->
+    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+    
+    <!-- Hover indicator -->
+    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div class="bg-white/90 backdrop-blur-sm rounded-full p-3 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+        <svg class="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+        </svg>
       </div>
     </div>
   </div>
+  
+  <!-- Content Section -->
+  <div class="p-5 flex items-center justify-between min-h-[4rem]">
+    <!-- Project Name -->
+    <h3 class="text-lg font-semibold text-gray-900 group-hover:text-indigo-700 transition-colors duration-300 line-clamp-2 flex-1">
+      {{ project.name }}
+    </h3>
+    
+    <!-- View indicator - only shows on hover -->
+    <div class="opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300 ml-3">
+      <div class="flex items-center text-sm font-medium text-indigo-600">
+        <span class="hidden sm:inline mr-1">View</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bottom accent line -->
+  <div class="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 group-hover:w-full transition-all duration-500 ease-out"></div>
+
 </div>

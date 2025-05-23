@@ -45,36 +45,25 @@ export class ProjectsComponent {
         await this.getProjectTechnologies()
     }
 
-    async getProjects() {
-        this.projects = await supabase.from('projects').select('*');
-
-        if (this.projects.data) {
-            this.projects = this.projects.data;
-        }
-        else {
-            this.projects = [];
-        }
-    }
-
     async getProjectTechnologies() {
-
         let { data: projects, error } = await supabase
             .from('projects')
             .select(`
-          id,
-          name,
-          description,
-          img,
-          github,
-          demo,
-          project_technology (
-            technology (
-              id,
-              name,
-              type
-            )
-          )
-        `);
+                id,
+                project_id,
+                name,
+                description,
+                img,
+                github,
+                demo,
+                project_technology (
+                    technology (
+                    id,
+                    name,
+                    type
+                    )
+                )
+            `);
 
         if (error) {
             console.error('Error fetching projects:', error);
@@ -97,6 +86,7 @@ export class ProjectsComponent {
 
                     return {
                         id: project.id,
+                        project_id: project.project_id,
                         name: project.name,
                         description: project.description,
                         img: project.img,

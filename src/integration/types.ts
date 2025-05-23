@@ -134,6 +134,7 @@ export type Database = {
           id: string
           img: string
           name: string
+          project_id: string | null
         }
         Insert: {
           demo?: string | null
@@ -142,6 +143,7 @@ export type Database = {
           id?: string
           img: string
           name: string
+          project_id?: string | null
         }
         Update: {
           demo?: string | null
@@ -149,6 +151,31 @@ export type Database = {
           github?: string | null
           id?: string
           img?: string
+          name?: string
+          project_id?: string | null
+        }
+        Relationships: []
+      }
+      skillnest: {
+        Row: {
+          created_at: string
+          email: string
+          id: number
+          message: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: number
+          message: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: number
+          message?: string
           name?: string
         }
         Relationships: []
@@ -167,6 +194,30 @@ export type Database = {
         Update: {
           id?: string
           img?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      syncai: {
+        Row: {
+          created_at: string
+          email: string
+          id: number
+          message: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: number
+          message: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: number
+          message?: string
           name?: string
         }
         Relationships: []
