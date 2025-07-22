@@ -21,10 +21,10 @@ const routes: Routes = [
     path: 'projects/:projectId',
     component: ProjectDetailComponent
   },
-  {
-    path: 'services',
-    component: ServicesComponent
-  },
+  // {
+  //   path: 'services',
+  //   component: ServicesComponent
+  // },
   {
     path: 'experience',
     component: ExperienceComponent
@@ -36,6 +36,11 @@ const routes: Routes = [
   {
     path: 'blog/:title',
     component: BlogDetailComponent
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
 

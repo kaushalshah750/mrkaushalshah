@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { AnalyticsService } from 'src/app/services/analytics.service';
+import { CommonService } from 'src/app/services/common.service';
 import { supabase } from 'src/integration/client';
 
 @Component({
@@ -11,16 +12,21 @@ import { supabase } from 'src/integration/client';
 })
 export class HomeComponent {
   skills: any[] = [];
+  experience: any = {}
 
   constructor(
     private titleService: Title,
     private metaService: Meta,
-    private analytics: AnalyticsService
+    private analytics: AnalyticsService,
+    private commonService: CommonService
   ) {
-    this.titleService.setTitle('Kaushal Shah | Full-Stack Developer & Freelancer');
+    console.log(this.commonService.getExperience(new Date()));
+    this.experience = this.commonService.getExperience(new Date())
+    console.log(this.experience)
+    this.titleService.setTitle('Kaushal Shah | Senior Software Developer – .NET Core & Angular Specialist');
     this.metaService.updateTag({
       name: 'description',
-      content: 'Explore the portfolio of Kaushal Shah — full-stack developer with expertise in Angular, .NET Core, DevOps, and modern web technologies. Hire for freelance projects or collaborations.'
+      content: 'Kaushal Shah is a Senior Software Developer experienced in building scalable, high-performance web applications using .NET Core, Angular, and Azure DevOps. Explore projects, skills, and engineering insights.'
     });
   }
 

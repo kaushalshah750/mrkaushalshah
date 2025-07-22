@@ -1,4 +1,4 @@
-# Kaushal Shah - Software Developer
+# Kaushal Shah - Senior Software Developer
 
 ## About Me
 
@@ -13,7 +13,7 @@ Hello! I'm Kaushal Shah, a passionate software developer with a focus on full-st
 
 ## Experience
 
-I have over 2 years of experience working for various company:
+I have over 3 years of experience working for various company:
 
 ### Xperate Systems Pvt. Ltd. - Software Developer
 
