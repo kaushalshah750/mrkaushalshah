@@ -21,22 +21,22 @@ const routes: Routes = [
     path: 'projects/:projectId',
     component: ProjectDetailComponent
   },
+  {
+    path: 'services',
+    component: ServicesComponent
+  },
   // {
-  //   path: 'services',
-  //   component: ServicesComponent
+  //   path: 'experience',
+  //   component: ExperienceComponent
   // },
-  {
-    path: 'experience',
-    component: ExperienceComponent
-  },
-  {
-    path: 'blogs',
-    component: BlogsComponent,
-  },
-  {
-    path: 'blog/:title',
-    component: BlogDetailComponent
-  },
+  // {
+  //   path: 'blogs',
+  //   component: BlogsComponent,
+  // },
+  // {
+  //   path: 'blog/:title',
+  //   component: BlogDetailComponent
+  // },
   {
     path: '**',
     redirectTo: '',

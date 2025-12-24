@@ -1,11 +1,18 @@
-<section id="projects" class="py-16 bg-indigo-50">
+<section id="projects" class="py-16 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-800 mb-3">Featured Work<span class="text-indigo-600">.</span></h2>
-      <p class="text-gray-600 max-w-xl mx-auto">Handcrafted projects, blending design and technology.</p>
+    
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 text-sm font-medium mb-4">
+        <span class="w-2 h-2 rounded-full bg-indigo-600 mr-2"></span>
+        <span>Selected Work</span>
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Engineering Case Studies<span class="text-indigo-600">.</span></h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+        I don't just write code; I build systems. Here are a few projects where I solved real-world problems using modern tech stacks.
+      </p>
     </div>
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       <app-project-card
         *ngFor="let project of projects"
         [project]="project"
@@ -13,5 +20,6 @@
         (toggle)="expandedId = expandedId === $event ? null : $event"
       ></app-project-card>
     </div>
+    
   </div>
 </section>

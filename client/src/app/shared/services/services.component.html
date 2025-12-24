@@ -1,235 +1,166 @@
-<!-- Services Hero Section -->
-<div class="relative bg-gradient-to-br from-indigo-50 via-white to-indigo-100 min-h-screen flex items-center py-16" style="min-height: calc(100vh - 55px);">
-    <!-- Background Geometric Elements -->
-    <div class="absolute inset-0 overflow-hidden">
+<div class="relative bg-gradient-to-br from-gray-50 via-white to-indigo-50 min-h-screen flex items-center py-16" style="min-height: calc(100vh - 55px);">
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 clip-path-polygon"></div>
+    <div class="absolute -bottom-10 -left-10 w-72 h-72 rounded-full bg-indigo-500/5"></div>
+    <div class="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-purple-500/5"></div>
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  </div>
 
-      <!-- Decorative elements -->
-      <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 clip-path-polygon"></div>
-      <div class="absolute -bottom-10 -left-10 w-72 h-72 rounded-full bg-indigo-500/5"></div>
-      <div class="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-purple-500/5"></div>
-      
-      <!-- Subtle grid pattern -->
-      <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      
-      <!-- Abstract lines -->
-      <div class="absolute top-0 left-1/2 w-px h-1/3 bg-gradient-to-b from-indigo-500/0 via-indigo-500/20 to-indigo-500/0"></div>
-      <div class="absolute top-2/3 left-1/4 w-1/4 h-px bg-gradient-to-r from-purple-500/0 via-purple-500/20 to-purple-500/0"></div>
-    </div>
-  
-    <!-- Content Container -->
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
 
-      <div class="text-center max-w-3xl mx-auto">
-        <!-- Animated Badge -->
-        <div class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 text-sm font-medium mb-6">
-          <span class="w-2 h-2 rounded-full bg-indigo-500 mr-2 animate-pulse"></span>
-          <span>Professional Development Services</span>
-        </div>
-        
-        <!-- Main Heading -->
-        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
-          Elevate Your Digital Presence with
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-            Custom Solutions
-          </span>
-        </h1>
-        
-        <!-- Subheading -->
-        <h2 class="text-xl text-gray-600 mb-8 mx-auto max-w-2xl">
-          From stunning websites to powerful backend systems, I deliver high-quality, tailored development services to help your business thrive online.
-        </h2>
-        
-        <!-- CTA Button -->
-        <div class="mt-8">
-          <button class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center mx-auto cursor-pointer"
-          (click)="ScrollIntoView('#services')"
-          >
-           <!-- (click)="scrollToPlans()"> -->
-            <span>Explore Services</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-          </button>
-        </div>
+    <div class="text-center max-w-4xl mx-auto">
+      <div class="inline-flex items-center px-3 py-1 rounded-full bg-black text-white text-sm font-mono mb-6 border border-gray-700 shadow-lg">
+        <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+        <span>Enterprise Grade Solutions</span>
+      </div>
+      
+      <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+        Stop Buying Websites. <br/>
+        Start Buying
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+          Revenue Systems.
+        </span>
+      </h1>
+      
+      <h2 class="text-xl text-gray-600 mb-10 mx-auto max-w-2xl font-medium">
+        I replace manual work with intelligent code. From AI Sales Agents to Custom SaaS Platforms, I build the tech that scales your business.
+      </h2>
+      
+      <div class="mt-8">
+        <button class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center mx-auto cursor-pointer transform hover:-translate-y-1"
+        (click)="ScrollIntoView('#solutions')"
+        >
+          <span>View Solutions</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
       </div>
     </div>
-    
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        
-      <span class="text-sm text-gray-500 mb-2">View Services</span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-      </svg>
-    </div>
-
+  </div>
 </div>
-  
-<!-- Services Overview Section -->
-<div id="services" class="bg-white">
-    <div class="container py-16 mx-auto px-4">
-        <div class="text-center mb-16">
 
-        <h2 class="text-3xl font-bold mb-4">Services I Offer</h2>
-              <div class="w-40 h-1 bg-indigo-600 mx-auto mb-4"></div>
-              <p class="text-gray-600 max-w-2xl mx-auto">
-            With expertise in modern web technologies, I provide comprehensive development services tailored to your specific needs and goals.
-        </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Service 1 -->
-        <div class="bg-gray-50 rounded-xl p-8 transition-all hover:shadow-lg border border-gray-100">
-
-            <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Website Development</h3>
-            <p class="text-gray-600 mb-4">
-            From simple landing pages to complex multi-page websites. I create modern, responsive sites that look great on all devices.
-            </p>
-            <ul class="space-y-2 text-gray-600">
-            <li class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Responsive design
-            </li>
-            <li class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Modern frameworks (Angular)
-            </li>
-            <li class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                SEO optimization
-            </li>
-            </ul>
-        </div>
-        
-        <!-- Service 2 -->
-        <div class="bg-gray-50 rounded-xl p-8 transition-all hover:shadow-lg border border-gray-100">
-            <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
-            </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Full-Stack Development</h3>
-            <p class="text-gray-600 mb-4">
-            End-to-end solutions with robust backend systems and dynamic frontend interfaces using modern technologies.
-            </p>
-            <ul class="space-y-2 text-gray-600">
-            <li class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                .NET Core/Node.js backend
-            </li>
-            <li class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Angular/Vue frontend
-            </li>
-            <li class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Database integration
-            </li>
-            </ul>
-        </div>
-        
-        <!-- Service 3 -->
-        <div class="bg-gray-50 rounded-xl p-8 transition-all hover:shadow-lg border border-gray-100">
-            <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Technical Consultation</h3>
-            <p class="text-gray-600 mb-4">
-            Professional guidance on technology choices, architecture decisions, and development best practices.
-            </p>
-            <ul class="space-y-2 text-gray-600">
-            <li class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Technology stack evaluation
-            </li>
-            <li class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Architecture planning
-            </li>
-            <li class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                DevOps optimization
-            </li>
-            </ul>
-        </div>
-    </div>
-    </div>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-          <div class="text-center mb-16">
-            <hgroup>
-              <h2 class="text-3xl font-bold mb-4">Choose Your Perfect Plan</h2>
-              <div class="w-40 h-1 bg-indigo-600 mx-auto mb-4"></div>
-              <p class="text-gray-600 max-w-2xl mx-auto">
-                Transparent pricing options to suit businesses of all sizes. Select the package that best fits your needs and budget.
+<div id="solutions" class="bg-white">
+  <div class="container py-20 mx-auto px-4">
+      
+      <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">How I Solve Your Problems</h2>
+          <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+              Most developers just write code. I engineer outcomes.
+          </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-indigo-500 transition-all duration-300 group">
+              <div class="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900">AI Automation Systems</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                  Automate your sales and support. I build custom GPT-5 agents that can scrape leads, write emails, and book appointments while you sleep.
               </p>
-            </hgroup>
+              <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">OpenAI API</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Puppeteer</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Node.js</span>
+              </div>
           </div>
-      
-          <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-8">
-            <article *ngFor="let plan of plans" [ngClass]="plan.featured ? 'border-2 border-indigo-500 transform scale-105 z-10' : 'border border-gray-200'" class="bg-white rounded-xl overflow-hidden transition-all hover:shadow-xl">
-              <div [ngClass]="plan.gradient ? 'p-6 border-b border-gray-100 bg-gradient-to-r from-indigo-500 to-purple-600 text-white' : 'p-6 border-b border-gray-100'">
-                <div class="flex items-center justify-between mb-4">
-                  <h3 class="text-xl font-bold">{{ plan.title }}</h3>
-                  <div class="py-1 px-3 rounded-full text-sm font-medium" [ngClass]="plan.gradient ? 'bg-white text-indigo-700' : 'bg-indigo-100 text-indigo-700'">
-                    {{ plan.tag }}
-                  </div>
-                </div>
-                <div class="mb-4">
-                  <span class="font-bold" [ngClass]="isInIndia ? 'text-2xl' : 'text-4xl'">{{ isInIndia ? plan.priceIndia : plan.priceIntl }}</span>
-                  <span [ngClass]="plan.gradient ? 'text-indigo-100' : 'text-gray-500'">/project</span>
-                </div>
-                <p [ngClass]="plan.gradient ? 'text-indigo-100' : 'text-gray-600'">
-                  {{ plan.description }}
-                </p>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-purple-500 transition-all duration-300 group">
+              <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
               </div>
-      
-              <div class="p-6">
-                <ul class="space-y-3">
-                  <li *ngFor="let feature of plan.features" class="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                    </svg>
-                    <span>{{ feature }}</span>
-                  </li>
-                </ul>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900">Custom SaaS Platforms</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                  Launch your own software product. Scalable, secure, and multi-tenant architectures built with .NET Core and Angular.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">.NET Core</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Angular</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">SQL/Mongo</span>
               </div>
-      
-              <div class="p-6 pt-0">
-                <button type="button" (click)="openCalendly(plan.type, plan.title)" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg cursor-pointer"
-                  [attr.aria-label]="'Schedule Consultation for ' + plan.title">
-                  Schedule Consultation
-                </button>
-              </div>
-            </article>
           </div>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-green-500 transition-all duration-300 group">
+              <div class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900">Legacy Modernization</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                  Is your current system slow? I refactor legacy code, optimize databases, and implement CI/CD pipelines to cut costs.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Azure DevOps</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Refactoring</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">Cloud</span>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <section id="pricing" class="py-20 bg-gray-900 text-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <hgroup>
+            <h2 class="text-3xl font-bold mb-4">Investment Plans</h2>
+            <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+              Transparent packages designed for serious business growth.
+            </p>
+          </hgroup>
         </div>
-    </section>
+    
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <article *ngFor="let plan of plans" [ngClass]="plan.featured ? 'border-2 border-indigo-500 transform scale-105 z-10 bg-gray-800' : 'border border-gray-700 bg-gray-800/50'" class="rounded-2xl overflow-hidden transition-all hover:shadow-2xl flex flex-col">
+            
+            <div class="p-8 border-b border-gray-700">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-bold text-white">{{ plan.title }}</h3>
+                <div *ngIf="plan.tag" class="py-1 px-3 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-900 text-indigo-300">
+                  {{ plan.tag }}
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                  <span class="text-4xl font-bold text-white">Custom</span>
+              </div>
+              <p class="text-gray-400">
+                {{ plan.description }}
+              </p>
+            </div>
+    
+            <div class="p-8 flex-grow">
+              <ul class="space-y-4">
+                <li *ngFor="let feature of plan.features" class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-gray-300 font-medium">{{ feature }}</span>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="p-8 pt-0 mt-auto">
+              <button type="button" (click)="openCalendly(plan.type, plan.title)" class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors shadow-lg cursor-pointer transform hover:scale-[1.02]"
+                [attr.aria-label]="'Schedule Strategy Call for ' + plan.title">
+                Request Strategy Call
+              </button>
+            </div>
+          </article>
+        </div>
+        
+        <div class="text-center mt-16">
+          <p class="text-gray-500 mb-4">Not sure which plan fits?</p>
+          <a href="mailto:kaushal@mrkaushalshah.com" class="text-indigo-400 font-semibold hover:text-indigo-300 underline">Email me directly</a>
+        </div>
+
+      </div>
+  </section>
 </div>

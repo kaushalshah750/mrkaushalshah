@@ -10,99 +10,62 @@ import { GeolocationService } from 'src/app/services/geolocation.service';
   standalone: false,
 })
 export class ServicesComponent {
+  
+  // High-Ticket Plans Configuration
   plans = [
     {
-      title: 'Starter',
-      tag: '🔥 Popular',
-      priceIndia: '₹5,000',
-      priceIntl: '$150',
-      description: 'Perfect for small businesses or individuals needing a simple online presence.',
+      title: 'Growth',
+      tag: 'AUTOMATION',
+      description: 'For businesses wanting to automate sales & lead gen.',
       features: [
-        '1-page scrollable design',
-        'Mobile responsive',
-        'WhatsApp inquiry button',
-        'Basic contact form integration',
-        'Google Maps embedding'
+        'AI Sales Agent (GPT-5)',
+        'Automated Lead Scraping',
+        'Cold Email Systems',
+        'WhatsApp Bot Integration',
+        'CRM Setup & Sync'
       ],
-      type: 'starter',
-      featured: false,
-      gradient: false,
+      type: 'growth',
+      featured: false
     },
     {
-      title: 'Pro',
-      tag: '🚀 Recommended',
-      priceIndia: '₹15,000',
-      priceIntl: '$400',
-      description: 'Ideal for businesses requiring a professional multi-page website.',
+      title: 'Scale',
+      tag: 'MOST POPULAR',
+      description: 'For startups needing a custom software product.',
       features: [
-        '3–5 page full website',
-        'Custom design with images/icons',
-        'Basic SEO setup',
-        'Supabase backend for contact forms',
-        'WhatsApp live chat integration'
+        'Custom SaaS Development',
+        'React/Angular Dashboard',
+        'Secure Node.js/.NET Backend',
+        'Payment Gateway (Stripe/Razorpay)',
+        '3 Months Maintenance'
       ],
-      type: 'pro',
-      featured: true,
-      gradient: true,
+      type: 'scale',
+      featured: true
     },
     {
-      title: 'Premium',
-      tag: '👑 Complete',
-      priceIndia: '₹35,000 - ₹50,000',
-      priceIntl: '$800 - $1,000',
-      description: 'Full-featured solution for businesses requiring advanced functionality.',
+      title: 'Enterprise',
+      tag: 'FULL SERVICE',
+      description: 'Complete digital transformation for established companies.',
       features: [
-        'Full website + Admin panel (Node.js / Supabase)',
-        'Real-time content editing (blogs, menus)',
-        'Booking / inquiry management system',
-        'Advanced SEO optimization',
-        'Analytics + CRM integrations'
+        'Legacy System Modernization',
+        'Cloud Infrastructure (Azure/AWS)',
+        'CI/CD Pipeline Setup',
+        'Advanced Analytics & Reporting',
+        'Dedicated Support Team'
       ],
-      type: 'premium',
-      featured: false,
-      gradient: false,
-    },
-    {
-      title: 'Custom Plan',
-      tag: '🛠️ Tailored',
-      priceIndia: '₹30,000+',
-      priceIntl: '$800+',
-      description: 'Tailored solutions based on your unique needs.',
-      features: [
-        'Fully custom web application',
-        'Advanced API integrations (payment gateways, CRMs)',
-        'Custom backend/frontend development',
-        'Performance optimization for scale',
-        'Enterprise-grade security features'
-      ],
-      type: 'custom',
-      featured: false,
-      gradient: false,
+      type: 'enterprise',
+      featured: false
     }
   ];
-
-  isInIndia: boolean = true;
 
   constructor(
     private titleService: Title,
     private metaService: Meta,
-    private geolocationService: GeolocationService,
     private analytics: AnalyticsService
   ) {
-    this.titleService.setTitle('Web Development Services | Kaushal Shah');
+    this.titleService.setTitle('Enterprise Automation Services | Kaushal Shah');
     this.metaService.updateTag({
       name: 'description',
-      content: 'Offering website development, landing pages, admin panels, and digital presence setup for startups and small businesses.'
-    });
-  }
-
-  ngOnInit() {
-    this.geolocationService.isInIndia().subscribe((isInIndia) => {
-      if (isInIndia) {
-        this.isInIndia = true;
-      } else {
-        this.isInIndia = false;
-      }
+      content: 'High-performance software development services: AI Automation, Custom SaaS, and Enterprise Legacy Modernization.'
     });
   }
 
@@ -114,11 +77,15 @@ export class ServicesComponent {
   }
 
   ScrollIntoView(elem: string) {
-    document.querySelector(elem)!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const element = document.querySelector(elem);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   openCalendly(type: string, title: string) {
-    window.open('https://calendly.com/kaushalshah750/' + type, '_blank');
+    // Directing all to a general consultation link for now to qualify leads personally
+    window.open('https://calendly.com/kaushalshah750/consultation', '_blank');
     this.trackConsultationClick(title);
   }
 }

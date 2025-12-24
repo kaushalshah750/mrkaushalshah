@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { AnalyticsService } from 'src/app/services/analytics.service';
 import { supabase } from 'src/integration/client';
-import { ProjectCardComponent } from './project-card/project-card.component';
-import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-projects',
@@ -12,32 +10,27 @@ import { CommonModule } from '@angular/common';
     standalone: false
 })
 export class ProjectsComponent {
-    projects: any;
-    expandedId: string | null = null; // <- Add this
-    techTypes = ['frontend', 'backend', 'database', 'deployment', 'authentication'];
-    showAllTech: { [projectId: string]: boolean } = {};
+    projects: any[] = [];
+    expandedId: string | null = null;
 
-    toggleShowTech(projectId: string): void {
-        this.showAllTech[projectId] = !this.showAllTech[projectId];
-    }
-
-    hasOverflowTech(technology: Record<string, string[]>): boolean {
-        let count = 0;
-        for (const key in technology) {
-            count += technology[key].length;
-        }
-        return count > 6; // Arbitrary cutoff
-    }
+    // Isko use karke hum descriptions upgrade karenge (Database change karne ki zarurat nahi)
+    descriptionOverrides: any = {
+        'Savoré': 'An automated reservation engine designed to optimize table turnover and reduce manual booking errors by 40%.',
+        'SyncAI': 'A high-conversion SaaS landing page engineered with modern UI/UX principles to maximize lead capture.',
+        'SkillNest': 'A scalable Learning Management System (LMS) architecture built to handle concurrent user sessions.',
+        'Pay Your Share': 'A secure fintech prototype for real-time expense splitting and transaction tracking.',
+        'Orien System Solution': 'Corporate digital identity platform focused on brand authority and SEO optimization.'
+    };
 
     constructor(
         private titleService: Title,
         private metaService: Meta,
         private analytics: AnalyticsService
     ) {
-        this.titleService.setTitle('Projects | Kaushal Shah');
+        this.titleService.setTitle('Case Studies | Kaushal Shah');
         this.metaService.updateTag({
             name: 'description',
-            content: 'Showcasing freelance and professional projects by Kaushal Shah, including custom-built websites, full-stack apps, and client solutions.'
+            content: 'Explore how I solve complex business problems using AI, Automation, and Full-Stack Engineering.'
         });
     }
 
@@ -69,14 +62,14 @@ export class ProjectsComponent {
             console.error('Error fetching projects:', error);
         } else {
             if (projects) {
-                // Transforming the fetched data
-                const transformedProjects = projects.map(project => {
+                // 1. Transform Database Projects
+                let transformedProjects = projects.map(project => {
                     const techTypeMap: Record<string, string[]> = {};
 
-                    project.project_technology.forEach(pt => {
+                    project.project_technology.forEach((pt: any) => {
                         const tech = pt.technology;
                         if (tech) {
-                            const key = tech.type.toLowerCase(); // Normalize type to lowercase
+                            const key = tech.type.toLowerCase();
                             if (!techTypeMap[key]) {
                                 techTypeMap[key] = [];
                             }
@@ -84,34 +77,40 @@ export class ProjectsComponent {
                         }
                     });
 
+                    // Override Description if available
+                    let smartDesc = this.descriptionOverrides[project.name] || project.description;
+
                     return {
                         id: project.id,
                         project_id: project.project_id,
                         name: project.name,
-                        description: project.description,
+                        description: smartDesc,
                         img: project.img,
                         github: project.github,
                         demo: project.demo,
-                        technology: techTypeMap // 👈 now a flat object
+                        technology: techTypeMap
                     };
                 });
-                this.projects = transformedProjects;
+
+                // 2. INJECT THE HUNTER BOT (Manually)
+                const hunterBot = {
+                    id: 999,
+                    project_id: 'hunter-bot-ai', // Special ID
+                    name: 'The Hunter Bot (AI Agent)',
+                    description: 'A fully autonomous Sales Agent that scrapes Google Maps, identifies decision-makers, and uses GPT-5 to write personalized cold emails 24/7.',
+                    img: '../assets/bot-preview.png', // <--- Bhai, ek screenshot leke 'assets' folder mein daal dena
+                    github: 'https://github.com/mrkaushalshah/agency-lead-hunter', // Tera repo link
+                    demo: null,
+                    technology: {
+                        'backend': ['Node.js', 'Puppeteer', 'OpenAI API (GPT-5)'],
+                        'automation': ['Google Sheets API', 'Cloudflare Bypass'],
+                        'deployment': ['Vercel / VPS']
+                    }
+                };
+
+                // Add to TOP of list
+                this.projects = [hunterBot, ...transformedProjects];
             }
-
         }
-    }
-
-    trackDemoClick(name: string) {
-        this.analytics.sendEvent('button_click', {
-            button_name: name + ' Demo',
-            location: 'Projects Page',
-        });
-    }
-
-    trackGithubClick(name: string) {
-        this.analytics.sendEvent('button_click', {
-            button_name: name + ' GitHub',
-            location: 'Projects Page',
-        });
     }
 }
