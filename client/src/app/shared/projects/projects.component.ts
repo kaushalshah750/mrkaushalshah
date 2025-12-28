@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { AnalyticsService } from 'src/app/services/analytics.service';
 import { supabase } from 'src/integration/client';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
     selector: 'app-projects',
@@ -25,6 +26,7 @@ export class ProjectsComponent {
     constructor(
         private titleService: Title,
         private metaService: Meta,
+        private api: ApiService,
         private analytics: AnalyticsService
     ) {
         this.titleService.setTitle('Case Studies | Kaushal Shah');
@@ -39,59 +41,8 @@ export class ProjectsComponent {
     }
 
     async getProjectTechnologies() {
-        let { data: projects, error } = await supabase
-            .from('projects')
-            .select(`
-                id,
-                project_id,
-                name,
-                description,
-                img,
-                github,
-                demo,
-                project_technology (
-                    technology (
-                    id,
-                    name,
-                    type
-                    )
-                )
-            `);
-
-        if (error) {
-            console.error('Error fetching projects:', error);
-        } else {
-            if (projects) {
-                // 1. Transform Database Projects
-                let transformedProjects = projects.map(project => {
-                    const techTypeMap: Record<string, string[]> = {};
-
-                    project.project_technology.forEach((pt: any) => {
-                        const tech = pt.technology;
-                        if (tech) {
-                            const key = tech.type.toLowerCase();
-                            if (!techTypeMap[key]) {
-                                techTypeMap[key] = [];
-                            }
-                            techTypeMap[key].push(tech.name);
-                        }
-                    });
-
-                    // Override Description if available
-                    let smartDesc = this.descriptionOverrides[project.name] || project.description;
-
-                    return {
-                        id: project.id,
-                        project_id: project.project_id,
-                        name: project.name,
-                        description: smartDesc,
-                        img: project.img,
-                        github: project.github,
-                        demo: project.demo,
-                        technology: techTypeMap
-                    };
-                });
-
+        this.api.getProjects().subscribe({
+            next: (data) => {
                 // 2. INJECT THE HUNTER BOT (Manually)
                 const hunterBot = {
                     id: 999,
@@ -107,10 +58,9 @@ export class ProjectsComponent {
                         'deployment': ['Vercel / VPS']
                     }
                 };
-
-                // Add to TOP of list
-                this.projects = [hunterBot, ...transformedProjects];
-            }
-        }
+                this.projects = [hunterBot, ...data];
+            },
+            error: (err) => console.error('API Error:', err)
+          });
     }
 }
