@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-voting-system',
@@ -8,28 +8,17 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class VotingSystemComponent implements OnInit {
 
-  constructor(private title: Title, private meta: Meta) {}
+  constructor(
+    private seo: SeoService
+  ) {}
 
   ngOnInit(): void {
-    // 1. Page Title (Browser Tab & Google Search Title)
-    this.title.setTitle('Secure Voting System Case Study | Kaushal Shah - Freelance Developer');
-
-    // 2. Meta Description (Google Search ke niche wali line)
-    this.meta.updateTag({ 
-      name: 'description', 
-      content: 'Case Study: How I built a secure, real-time voting system for 200+ users using Angular 19, Node.js, and AWS. Zero downtime, 100% data integrity.' 
+    this.seo.updateSeoData({
+      title: 'Case Study: Secure Voting System on AWS | Kaushal Shah',
+      description: 'How I built a tamper-proof election system handling 200+ concurrent users using Angular 19, Node.js, and AWS VPS. Zero downtime, 100% security.',
+      keywords: 'Secure Voting App, Angular Case Study, Node.js Scalability, AWS VPS Hosting, Real-time Election System, High Performance Web App',
+      url: 'https://mrkaushalshah.com/case-studies/secure-voting-system',
+      image: 'https://mrkaushalshah.com/assets/projects/Voting/voting.png' // Wahi screenshot jo lagaya tha
     });
-
-    // 3. Keywords (For SEO bots)
-    this.meta.updateTag({ 
-      name: 'keywords', 
-      content: 'Angular Developer, Node.js Freelancer, Secure Voting System, Web App Development, AWS Deployment, Case Study' 
-    });
-
-    // 4. Open Graph Tags (Jab koi link WhatsApp/LinkedIn pe share karega)
-    this.meta.updateTag({ property: 'og:title', content: 'Building a Secure Voting System on AWS' });
-    this.meta.updateTag({ property: 'og:description', content: 'See how I handled 200+ concurrent voters with zero crashes.' });
-    // Yahan apni image ka full URL daalna
-    this.meta.updateTag({ property: 'og:image', content: 'https://mrkaushalshah.com/assets/voting-screenshot.png' });
   }
 }
