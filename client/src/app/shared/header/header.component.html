@@ -1,83 +1,40 @@
-<nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200 shadow-sm">
-  <div class="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6">
+<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-black/60 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     
-    <div>
-      <h4 class="text-xl sm:text-2xl font-extrabold tracking-wide text-gray-800 cursor-pointer transition-transform hover:scale-105" routerLink="/">
-        KAUSHAL SHAH
+    <div class="cursor-pointer z-50" (click)="scrollToSection('hero')">
+      <h4 class="text-2xl font-bold tracking-tighter text-white">
+        <span class="text-emerald-400">mr</span>kaushalshah
       </h4>
     </div>
 
-    <button 
-      class="md:hidden flex items-center text-gray-700 focus:outline-none" 
-      (click)="isMenuOpen = !isMenuOpen" 
-      aria-label="Toggle menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <div class="hidden md:flex items-center gap-8">
+      <button (click)="scrollToSection('proof')" class="text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">
+        Work
+      </button>
+      <!-- <button (click)="scrollToSection('case-studies/secure-voting-system')" class="text-sm font-medium text-gray-300 hover:text-emerald-400 transition-colors">
+        Services
+      </button> -->
+      <button (click)="openWhatsApp()" class="bg-white/10 hover:bg-emerald-500 hover:text-black hover:border-emerald-500 border border-white/20 text-white px-6 py-2 rounded-full text-sm font-bold transition-all duration-300">
+        Let's Talk
+      </button>
+    </div>
+
+    <button class="md:hidden text-white focus:outline-none" (click)="isMenuOpen = !isMenuOpen">
+      <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
+      <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
     </button>
-
-    <div class="hidden md:flex items-center">
-      <div class="flex space-x-6 sm:space-x-10 text-gray-700 font-medium text-sm sm:text-base tracking-wide">
-        
-        <a
-          class="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-indigo-500 after:transition-all after:duration-300 hover:after:w-full hover:text-indigo-600 cursor-pointer"
-          [routerLink]="['/']"
-          routerLinkActive="text-indigo-600 after:w-full"
-          [routerLinkActiveOptions]="{exact: true}"
-        >
-          Home
-        </a>
-
-        <a
-          class="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-indigo-500 after:transition-all after:duration-300 hover:after:w-full hover:text-indigo-600 cursor-pointer"
-          [routerLink]="['services']"
-          routerLinkActive="text-indigo-600 after:w-full"
-        >
-          Services
-        </a>
-
-        <a
-          class="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-indigo-500 after:transition-all after:duration-300 hover:after:w-full hover:text-indigo-600 cursor-pointer"
-          [routerLink]="['projects']"
-          routerLinkActive="text-indigo-600 after:w-full"
-        >
-          Case Studies
-        </a>
-        
-      </div>
-    </div>
   </div>
 
-  <div 
-    class="md:hidden" 
-    [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}"
-  >
-    <div class="px-4 py-3 space-y-3 bg-white border-t border-gray-200 shadow-inner">
-      <a
-        class="block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors"
-        [routerLink]="['/']"
-        routerLinkActive="text-indigo-600 bg-gray-50"
-        [routerLinkActiveOptions]="{exact: true}"
-        (click)="isMenuOpen = false"
-      >
-        Home
-      </a>
-      <a
-        class="block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors"
-        [routerLink]="['services']"
-        routerLinkActive="text-indigo-600 bg-gray-50"
-        (click)="isMenuOpen = false"
-      >
-        Services
-      </a>
-      <a
-        class="block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition-colors"
-        [routerLink]="['projects']"
-        routerLinkActive="text-indigo-600 bg-gray-50"
-        (click)="isMenuOpen = false"
-      >
-        Case Studies
-      </a>
+  <div class="md:hidden bg-[#0a0a0a] border-b border-white/10 absolute w-full transition-all duration-300 ease-in-out overflow-hidden"
+       [ngClass]="{'max-h-60 opacity-100': isMenuOpen, 'max-h-0 opacity-0': !isMenuOpen}">
+    <div class="flex flex-col px-6 pb-6 space-y-4 pt-2">
+      <button (click)="scrollToSection('proof')" class="text-left text-gray-300 hover:text-emerald-400 text-lg font-medium">Work</button>
+      <button (click)="scrollToSection('services')" class="text-left text-gray-300 hover:text-emerald-400 text-lg font-medium">Services</button>
+      <button (click)="openWhatsApp()" class="text-left text-emerald-400 font-bold mt-2">Chat on WhatsApp</button>
     </div>
   </div>
 </nav>

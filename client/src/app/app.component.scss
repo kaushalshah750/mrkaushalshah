@@ -1,0 +1,12 @@
+.delay-700 {
+    animation-delay: 700ms;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }

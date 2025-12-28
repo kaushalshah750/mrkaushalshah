@@ -19,5 +19,12 @@ export class FooterComponent {
             location: 'Footer Section',
         });
     }
+    openEmail(): void {
+        window.location.href = 'mailto:kaushal@mrkaushalshah.com';
+    }
 
+    openWhatsApp(): void {
+        window.open('https://wa.me/919974442525', '_blank');
+      }
+    
 }

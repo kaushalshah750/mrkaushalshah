@@ -1,51 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { VotingSystemComponent } from './pages/case-studies/voting-system/voting-system.component'; // Import check kar lena
 import { HomeComponent } from './shared/home/home.component';
-import { ProjectsComponent } from './shared/projects/projects.component';
-import { ExperienceComponent } from './shared/experience/experience.component';
-import { ServicesComponent } from './shared/services/services.component';
-import { BlogsComponent } from './shared/blogs/blogs.component';
-import { BlogDetailComponent } from './shared/blogs/blog-detail/blog-detail.component';
-import { ProjectDetailComponent } from './shared/projects/project-detail/project-detail.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'projects',
-    component: ProjectsComponent
-  },
-  {
-    path: 'projects/:projectId',
-    component: ProjectDetailComponent
-  },
-  {
-    path: 'services',
-    component: ServicesComponent
-  },
-  // {
-  //   path: 'experience',
-  //   component: ExperienceComponent
-  // },
-  // {
-  //   path: 'blogs',
-  //   component: BlogsComponent,
-  // },
-  // {
-  //   path: 'blog/:title',
-  //   component: BlogDetailComponent
-  // },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full'
-  }
+  // Home Page
+  { path: '', component: HomeComponent },
+  
+  // Case Study Page (SEO friendly URL)
+  { path: 'case-studies/secure-voting-system', component: VotingSystemComponent },
+
+  // Koi galat URL dale toh Home pe bhejo
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { 
+    scrollPositionRestoration: 'enabled', // Page change hone pe top pe le aayega
+    anchorScrolling: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
