@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/shared/header/header.component.scss", "src/app/shared/header/header.component.scss"],
-  "sourcesContent": [".nav-menu{\r\n    font-size: 16px;\r\n}\r\n\r\n.sticky-header{\r\n    position: sticky;\r\n    top: 0;\r\n    z-index: 2;\r\n    background-color: #ffffff;\r\n}", ".nav-menu {\n  font-size: 16px;\n}\n\n.sticky-header {\n  position: sticky;\n  top: 0;\n  z-index: 2;\n  background-color: #ffffff;\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJmaWxlOi8vL0Q6L1Byb2plY3RzL21ya2F1c2hhbHNoYWgvY2xpZW50L3NyYy9hcHAvc2hhcmVkL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSTs7O0FBR0o7RUFDSTtFQUNBO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5uYXYtbWVudXtcclxuICAgIGZvbnQtc2l6ZTogMTZweDtcclxufVxyXG5cclxuLnN0aWNreS1oZWFkZXJ7XHJcbiAgICBwb3NpdGlvbjogc3RpY2t5O1xyXG4gICAgdG9wOiAwO1xyXG4gICAgei1pbmRleDogMjtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7XHJcbn0iXX0= */"],
-  "mappings": ";AAAA,CAAA;AACI,aAAA;ACCJ;ADEA,CAAA;AACI,YAAA;AACA,OAAA;AACA,WAAA;AACA,oBAAA;ACCJ;",
-  "names": []
-}

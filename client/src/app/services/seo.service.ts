@@ -22,13 +22,11 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:description', content: data.description });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({ property: 'og:url', content: data.url || 'https://mrkaushalshah.com' });
-    
-    // Agar image hai toh set karo (Share karne pe ye dikhegi)
+
     if (data.image) {
       this.meta.updateTag({ property: 'og:image', content: data.image });
     } else {
-      // Fallback Image (Apni photo ya logo ka path de dena)
-      this.meta.updateTag({ property: 'og:image', content: 'https://mrkaushalshah.com/assets/dp.jpg' });
+      this.meta.updateTag({ property: 'og:image', content: 'https://mrkaushalshah.com/assets/dp.png' });
     }
 
     // 4. Set Twitter Card Tags

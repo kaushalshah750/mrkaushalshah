@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/shared/projects/projects.component.scss", "src/app/shared/projects/projects.component.scss"],
-  "sourcesContent": ["\r\n.project-logo{\r\n    width: 250px !important;\r\n}", ".project-logo {\n  width: 250px !important;\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJmaWxlOi8vL0Q6L1Byb2plY3RzL21ya2F1c2hhbHNoYWgvY2xpZW50L3NyYy9hcHAvc2hhcmVkL3Byb2plY3RzL3Byb2plY3RzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0kiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuLnByb2plY3QtbG9nb3tcclxuICAgIHdpZHRoOiAyNTBweCAhaW1wb3J0YW50O1xyXG59Il19 */"],
-  "mappings": ";AACA,CAAA;AACI,SAAA;ACAJ;",
-  "names": []
-}

@@ -81,11 +81,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   currentRole = '';
   private roles = [
-    'scalable systems',
-    'enterprise platforms',
-    'cloud-native apps',
-    'AI-powered tools',
-    'fintech solutions'
+    'Senior Software Developer',
+    'Senior Software Engineer',
+    'Full-Stack Architect',
+    'Scalable Systems',
+    'Agentic AI Solutions'
   ];
   private roleIndex = 0;
   private charIndex = 0;
@@ -160,9 +160,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.seo.updateSeoData({
-      title: 'Kaushal Shah | Senior Full-Stack Developer | .NET 9 · Angular 19 · Agentic AI',
-      description: 'Senior Full-Stack Developer with 4.5+ years building enterprise-grade applications in FinTech, LegalTech, and SaaS. Expert in .NET 9, Angular 19, and Agentic AI.',
-      keywords: 'Senior Full-Stack Developer, .NET 9, Angular 19, Agentic AI, Node.js, FinTech Developer, LegalTech Software Engineer, System Architecture, Kaushal Shah, Sparqal Systems',
+      title: 'Senior Software Developer | Kaushal Shah | Pune',
+      description: 'Senior Software Developer & Full-Stack Engineer based in Pune with 4.5+ years of experience in FinTech, LegalTech, and SaaS. Expert in .NET 9, Angular 19, and Agentic AI.',
+      keywords: 'Senior Software Developer Pune, Senior Software Engineer Pune, Full Stack Developer Pune, Angular Expert Pune, Node.js Expert Pune, Kaushal Shah Portfolio, Software Architect Pune',
       url: 'https://mrkaushalshah.com',
       image: 'https://mrkaushalshah.com/assets/dp.png'
     });
