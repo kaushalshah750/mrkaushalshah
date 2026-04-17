@@ -199,7 +199,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     canvas.height = rect.height;
     this.ctx = canvas.getContext('2d')!;
 
-    const count = Math.min(Math.floor((canvas.width * canvas.height) / 8000), 150);
+    const isMobile = window.innerWidth <= 768;
+    const maxParticles = isMobile ? 50 : 150;
+    const count = Math.min(Math.floor((canvas.width * canvas.height) / 8000), maxParticles);
     this.particles = [];
 
     for (let i = 0; i < count; i++) {
