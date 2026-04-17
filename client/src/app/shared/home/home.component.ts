@@ -162,7 +162,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.seo.updateSeoData({
       title: 'Senior Software Developer | Kaushal Shah | Pune',
       description: 'Senior Software Developer & Full-Stack Engineer based in Pune with 4.5+ years of experience in FinTech, LegalTech, and SaaS. Expert in .NET 9, Angular 19, and Agentic AI.',
-      keywords: 'Senior Software Developer Pune, Senior Software Engineer Pune, Full Stack Developer Pune, Angular Expert Pune, Node.js Expert Pune, Kaushal Shah Portfolio, Software Architect Pune',
+      keywords: 'Senior Software Developer Pune, Senior Software Engineer Pune, Full Stack Developer Pune, Angular Expert Pune, .NET 9 Developer, Agentic AI Engineer, Kaushal Shah Portfolio, Software Architect Pune, Pune Tech Lead',
       url: 'https://mrkaushalshah.com',
       image: 'https://mrkaushalshah.com/assets/dp.png'
     });
@@ -178,7 +178,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.startParticleLoop();
     this.setupHeroAnimations();
     this.setupScrollAnimations();
-    this.startTypingEffect();
+
+    // Start typing effect after tick to avoid NG0100 error
+    setTimeout(() => this.startTypingEffect(), 0);
   }
 
   ngOnDestroy(): void {
