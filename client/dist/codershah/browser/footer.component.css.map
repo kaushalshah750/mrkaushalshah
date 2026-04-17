@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/footer/footer.component.scss", "src/custom-theme.scss", "src/app/shared/footer/footer.component.scss"],
+  "sourcesContent": ["@use '../../../custom-theme.scss' as *;\r\n\r\n.footer{\r\n    background-color: $primary;\r\n}", "$primary: #1C1C1C !important;\r\n$secondary: #A18182 !important;\r\n$accent: #F7F7F7 !important;", ".footer {\n  background-color: #1C1C1C !important;\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJmaWxlOi8vL0Q6L1Byb2plY3RzL21ya2F1c2hhbHNoYWgvY2xpZW50L3NyYy9hcHAvc2hhcmVkL2Zvb3Rlci9mb290ZXIuY29tcG9uZW50LnNjc3MiLCJmaWxlOi8vL0Q6L1Byb2plY3RzL21ya2F1c2hhbHNoYWgvY2xpZW50L3NyYy9jdXN0b20tdGhlbWUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNJLGtCQ0hNIiwic291cmNlc0NvbnRlbnQiOlsiQHVzZSAnLi4vLi4vLi4vY3VzdG9tLXRoZW1lLnNjc3MnIGFzICo7XHJcblxyXG4uZm9vdGVye1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogJHByaW1hcnk7XHJcbn0iLCIkcHJpbWFyeTogIzFDMUMxQyAhaW1wb3J0YW50O1xyXG4kc2Vjb25kYXJ5OiAjQTE4MTgyICFpbXBvcnRhbnQ7XHJcbiRhY2NlbnQ6ICNGN0Y3RjcgIWltcG9ydGFudDsiXX0= */"],
+  "mappings": ";AAEA,CAAA;AACI,oBAAA;AEDJ;",
+  "names": []
+}

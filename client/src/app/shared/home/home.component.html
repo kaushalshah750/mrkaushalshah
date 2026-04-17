@@ -1,320 +1,349 @@
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center bg-surface-950 overflow-hidden pt-20">
-    <!-- Ambient Glow Effects -->
-    <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-brand-primary/10 rounded-full blur-[120px] animate-pulse"></div>
-    <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand-secondary/10 rounded-full blur-[120px]"></div>
-    
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-        <div class="order-2 lg:order-1">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-primary/30 bg-brand-primary/5 text-brand-primary text-xs font-mono font-medium mb-8">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
-                </span>
-                Available for Senior Engineering Roles
-            </div>
-            
-            <h1 class="text-5xl lg:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter">
-                Senior Full-Stack <br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
-                    Developer.
-                </span>
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- HERO SECTION — Immersive Particle Universe + Magnetic Cursor      -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section id="hero" class="hero-universe" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()">
+    <!-- Canvas for particle system -->
+    <canvas #particleCanvas class="particle-canvas"></canvas>
+
+    <!-- Radial gradient that follows cursor -->
+    <div class="cursor-glow" [style.left.px]="mouseX" [style.top.px]="mouseY"></div>
+
+    <!-- Floating grid lines -->
+    <div class="grid-overlay"></div>
+
+    <!-- Orbiting rings -->
+    <div class="orbit-ring orbit-ring-1"></div>
+    <div class="orbit-ring orbit-ring-2"></div>
+    <div class="orbit-ring orbit-ring-3"></div>
+
+    <!-- Content Layer -->
+    <div class="hero-content">
+        <!-- Glitch status badge -->
+        <div class="status-badge" #statusBadge>
+            <span class="status-dot"></span>
+            <span class="status-text">OPEN TO WORK</span>
+            <span class="status-line"></span>
+        </div>
+
+        <!-- Giant kinetic headline -->
+        <div class="headline-wrapper" #headlineWrapper>
+            <h1 class="headline-line" #headlineLine1>
+                <span class="headline-word" *ngFor="let char of headlineChars1; let i = index"
+                    [attr.data-index]="i"
+                    (mouseenter)="onCharHover($event)"
+                    (mouseleave)="onCharLeave($event)">{{ char }}</span>
             </h1>
-            
-            <p class="text-gray-400 text-lg md:text-xl mb-10 leading-relaxed max-w-xl font-medium">
-                Designing enterprise-grade web applications for <span class="text-white">FinTech</span> and <span class="text-white">LegalTech</span>. 
-                Focusing on distributed systems, scalable architecture, and technical leadership with <span class="text-brand-primary">4.5+ years</span> of core experience.
-            </p>
-            
-            <div class="flex flex-wrap gap-5">
-                <button (click)="downloadResume()" class="btn-primary flex items-center gap-2 group">
-                    <span>Download Resume</span>
-                    <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                </button>
-                <button (click)="openLinkedIn()" class="btn-secondary group">
-                    LinkedIn Profile
-                </button>
-            </div>
+            <h1 class="headline-line headline-gradient" #headlineLine2>
+                <span class="headline-word" *ngFor="let char of headlineChars2; let i = index"
+                    [attr.data-index]="i"
+                    (mouseenter)="onCharHover($event)"
+                    (mouseleave)="onCharLeave($event)">{{ char }}</span>
+            </h1>
+        </div>
 
-            <!-- Experience Stats -->
-            <div class="mt-16 grid grid-cols-3 gap-8 p-6 bg-white/5 border border-white/5 rounded-2xl backdrop-blur-sm max-w-lg">
-                <div>
-                    <div class="text-3xl font-bold text-white mb-1">4.5+</div>
-                    <div class="text-[10px] text-gray-500 uppercase tracking-widest font-mono">Years Experience</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-1">20+</div>
-                    <div class="text-[10px] text-gray-500 uppercase tracking-widest font-mono">Productions Sites</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-white mb-1">.NET 9</div>
-                    <div class="text-[10px] text-gray-500 uppercase tracking-widest font-mono">Current Focus</div>
-                </div>
+        <!-- Morphing tagline -->
+        <div class="tagline-morph" #tagline>
+            <span class="tagline-static">I architect </span>
+            <span class="tagline-dynamic" #dynamicText>{{ currentRole }}</span>
+            <span class="tagline-cursor">|</span>
+        </div>
+
+        <!-- Interactive CTA cluster -->
+        <div class="cta-cluster" #ctaCluster>
+            <button class="cta-magnetic" #ctaMagnetic1 (click)="downloadResume()"
+                (mousemove)="onMagneticMove($event, 0)"
+                (mouseleave)="onMagneticLeave(0)">
+                <span class="cta-bg"></span>
+                <span class="cta-text">
+                    <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                    Resume
+                </span>
+                <span class="cta-shimmer"></span>
+            </button>
+
+            <button class="cta-magnetic cta-outline" #ctaMagnetic2 (click)="openLinkedIn()"
+                (mousemove)="onMagneticMove($event, 1)"
+                (mouseleave)="onMagneticLeave(1)">
+                <span class="cta-text">
+                    <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    LinkedIn
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating stat orbs (interactive) -->
+    <div class="stat-orbs">
+        <div class="stat-orb" #statOrb1
+            (mouseenter)="onOrbHover($event, 0)"
+            (mouseleave)="onOrbLeave(0)">
+            <div class="orb-glow"></div>
+            <div class="orb-ring"></div>
+            <div class="orb-content">
+                <span class="orb-number" #orbNum1>0</span>
+                <span class="orb-label">Years<br/>Shipped</span>
             </div>
         </div>
 
-        <!-- Terminal / Code Visual -->
-        <div class="order-1 lg:order-2 relative group px-4">
-            <div class="absolute -inset-4 bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-            <div class="relative bg-surface-900 border border-white/10 rounded-2xl p-6 shadow-2xl font-mono text-sm overflow-hidden">
-                <div class="flex gap-2 mb-6">
-                    <div class="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#27C93F]"></div>
-                    <div class="ml-4 text-xs text-gray-600 font-mono">main.ts — mrkaushalshah</div>
-                </div>
-                <div class="space-y-2">
-                    <div class="flex gap-4"><span class="text-gray-600 w-4">01</span> <span class="text-brand-secondary">class</span> <span class="text-emerald-400">SoftwareEngineer</span> {{ '{' }}</div>
-                    <div class="flex gap-4"><span class="text-gray-600 w-4">02</span> <span class="pl-4 text-gray-400">constructor() {{ '{' }}</span></div>
-                    <div class="flex gap-4"><span class="text-gray-600 w-4">03</span> <span class="pl-8 text-gray-400">this.<span class="text-blue-400">focus</span> = <span class="text-yellow-400">'Enterprise Scalability'</span>;</span></div>
-                    <div class="flex gap-4"><span class="text-gray-600 w-4">04</span> <span class="pl-8 text-gray-400">this.<span class="text-blue-400">stack</span> = [<span class="text-yellow-400">'.NET Core'</span>, <span class="text-yellow-400">'Angular'</span>, <span class="text-yellow-400">'NodeJS'</span>];</span></div>
-                    <div class="flex gap-4"><span class="text-gray-600 w-4">05</span> <span class="pl-4 text-gray-400">{{ '}' }}</span></div>
-                    <div class="flex gap-4"><span class="text-gray-600 w-4">06</span> <span class="text-blue-500">async</span> <span class="text-emerald-400">deploy</span>(env: <span class="text-yellow-500">Environment</span>) {{ '{' }}</div>
-                    <div class="flex gap-4"><span class="text-gray-600 w-4">07</span> <span class="pl-4 text-gray-400">const <span class="text-blue-400">status</span> = <span class="text-blue-500">await</span> system.validate();</span></div>
-                    <div class="flex gap-4"><span class="text-gray-600 w-4">08</span> <span class="pl-4 text-gray-400">return <span class="text-blue-400">status</span> ? <span class="animate-pulse">🚀 Success</span> : <span class="text-red-400">Fail</span>;</span></div>
-                    <div class="flex gap-4"><span class="text-gray-600 w-4">09</span> <span class="text-gray-400">{{ '}' }}</span></div>
-                    <div class="flex gap-4 transition-transform hover:scale-105 cursor-default"><span class="text-gray-600 w-4">10</span> <span class="text-gray-600">{{ '}' }}</span></div>
-                </div>
-
+        <div class="stat-orb stat-orb-2" #statOrb2
+            (mouseenter)="onOrbHover($event, 1)"
+            (mouseleave)="onOrbLeave(1)">
+            <div class="orb-glow"></div>
+            <div class="orb-ring"></div>
+            <div class="orb-content">
+                <span class="orb-number" #orbNum2>0</span>
+                <span class="orb-label">Production<br/>Systems</span>
             </div>
-            <!-- Decorative Tech Icons Floating -->
-            <div class="absolute -top-6 -left-6 w-12 h-12 bg-surface-800 border border-white/5 rounded-xl flex items-center justify-center text-xl shadow-xl animate-bounce">A</div>
-            <div class="absolute -bottom-6 -right-6 w-12 h-12 bg-surface-800 border border-white/5 rounded-xl flex items-center justify-center text-xl shadow-xl animate-bounce" style="animation-delay: 1s">{{ '#' }}</div>
+        </div>
+
+        <div class="stat-orb stat-orb-3" #statOrb3
+            (mouseenter)="onOrbHover($event, 2)"
+            (mouseleave)="onOrbLeave(2)">
+            <div class="orb-glow"></div>
+            <div class="orb-ring"></div>
+            <div class="orb-content">
+                <span class="orb-number" #orbNum3>0</span>
+                <span class="orb-label">Tech<br/>Stack</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-beacon" #scrollBeacon>
+        <div class="scroll-line"></div>
+        <span class="scroll-label">SCROLL</span>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TECH DNA SECTION — Horizontal scroll with parallax depth           -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="tech-dna-section" #techDnaSection>
+    <div class="section-header" #techHeader>
+        <span class="section-tag">TECHNICAL DNA</span>
+        <h2 class="section-title">
+            Systems I <span class="text-gradient">Engineer</span>
+        </h2>
+    </div>
+
+    <div class="tech-dna-track" #techTrack>
+        <!-- Frontend Pillar -->
+        <div class="dna-card" #dnaCard1>
+            <div class="dna-card-inner">
+                <div class="dna-card-number">01</div>
+                <div class="dna-card-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="4" y="4" width="40" height="30" rx="3"/>
+                        <path d="M14 40h20M24 34v6"/>
+                        <path d="M16 16l4 4-4 4M22 24h6" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3 class="dna-card-title">Frontend<br/>Engineering</h3>
+                <div class="dna-card-techs">
+                    <span class="dna-tech" *ngFor="let tech of frontendTechs">{{ tech }}</span>
+                </div>
+                <div class="dna-card-line"></div>
+            </div>
+        </div>
+
+        <!-- Backend Pillar -->
+        <div class="dna-card" #dnaCard2>
+            <div class="dna-card-inner">
+                <div class="dna-card-number">02</div>
+                <div class="dna-card-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="8" y="6" width="32" height="10" rx="2"/>
+                        <rect x="8" y="19" width="32" height="10" rx="2"/>
+                        <rect x="8" y="32" width="32" height="10" rx="2"/>
+                        <circle cx="14" cy="11" r="1.5" fill="currentColor"/>
+                        <circle cx="14" cy="24" r="1.5" fill="currentColor"/>
+                        <circle cx="14" cy="37" r="1.5" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3 class="dna-card-title">System<br/>Architecture</h3>
+                <div class="dna-card-techs">
+                    <span class="dna-tech" *ngFor="let tech of backendTechs">{{ tech }}</span>
+                </div>
+                <div class="dna-card-line"></div>
+            </div>
+        </div>
+
+        <!-- Cloud Pillar -->
+        <div class="dna-card" #dnaCard3>
+            <div class="dna-card-inner">
+                <div class="dna-card-number">03</div>
+                <div class="dna-card-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 36a8 8 0 01-1.5-15.87A12 12 0 0134 20h2a6 6 0 010 12H12z"/>
+                        <path d="M20 28v8M24 26v10M28 28v8" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 class="dna-card-title">Cloud &<br/>Automation</h3>
+                <div class="dna-card-techs">
+                    <span class="dna-tech" *ngFor="let tech of cloudTechs">{{ tech }}</span>
+                </div>
+                <div class="dna-card-line"></div>
+            </div>
+        </div>
+
+        <!-- AI Pillar -->
+        <div class="dna-card" #dnaCard4>
+            <div class="dna-card-inner">
+                <div class="dna-card-number">04</div>
+                <div class="dna-card-icon">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="24" cy="24" r="4"/>
+                        <path d="M24 4v8M24 36v8M4 24h8M36 24h8"/>
+                        <path d="M10 10l6 6M32 32l6 6M10 38l6-6M32 16l6-6"/>
+                        <circle cx="24" cy="24" r="16"/>
+                    </svg>
+                </div>
+                <h3 class="dna-card-title">Agentic<br/>AI</h3>
+                <div class="dna-card-techs">
+                    <span class="dna-tech" *ngFor="let tech of aiTechs">{{ tech }}</span>
+                </div>
+                <div class="dna-card-line"></div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Technical Expertise Grid -->
-<section class="py-24 bg-surface-900 border-y border-white/5 relative">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-                <h2 class="text-xs font-mono font-bold text-brand-primary uppercase tracking-[0.3em] mb-4">Technical Core</h2>
-                <h3 class="text-4xl md:text-5xl font-black text-white">Full-Stack Capability</h3>
-            </div>
-            <p class="text-gray-500 max-w-sm text-sm font-mono uppercase tracking-wider">
-                Leveraging distributed systems and modern frameworks to solve complex business problems.
-            </p>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Frontend -->
-            <div class="card-premium">
-                <div class="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-6">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-4">Frontend Engineering</h4>
-                <div class="flex flex-wrap gap-2">
-                    <span class="tech-chip">Angular 19</span>
-                    <span class="tech-chip">Vue.js</span>
-                    <span class="tech-chip">React</span>
-                    <span class="tech-chip">TypeScript</span>
-                    <span class="tech-chip">TailwindCSS</span>
-                    <span class="tech-chip">RxJS</span>
-                </div>
-            </div>
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- EXPERIENCE SECTION — Stacked reveal cards with depth               -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section id="experience" class="experience-section" #experienceSection>
+    <div class="section-header" #expHeader>
+        <span class="section-tag">THE TRACK RECORD</span>
+        <h2 class="section-title">
+            Engineering <span class="text-gradient">Timeline</span>
+        </h2>
+    </div>
 
-            <!-- Backend -->
-            <div class="card-premium">
-                <div class="w-12 h-12 rounded-xl bg-brand-secondary/10 flex items-center justify-center text-brand-secondary mb-6">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-4">System Architecture</h4>
-                <div class="flex flex-wrap gap-2">
-                    <span class="tech-chip">.NET 9 / Core</span>
-                    <span class="tech-chip">Node.js</span>
-                    <span class="tech-chip">Rest APIs</span>
-                    <span class="tech-chip">Entity Framework</span>
-                    <span class="tech-chip">SQL Server / MySQL</span>
-                    <span class="tech-chip">MongoDB</span>
-                </div>
-            </div>
+    <div class="exp-timeline">
+        <div class="timeline-line" #timelineLine></div>
 
-            <!-- DevOps -->
-            <div class="card-premium border-brand-primary/20">
-                <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        <div class="exp-card" #expCard *ngFor="let exp of experiences; let i = index"
+            [attr.data-index]="i">
+            <div class="exp-card-inner"
+                (mouseenter)="onExpCardHover($event, i)"
+                (mouseleave)="onExpCardLeave(i)">
+
+                <div class="exp-dot">
+                    <div class="exp-dot-ring"></div>
+                    <div class="exp-dot-core"></div>
                 </div>
-                <h4 class="text-xl font-bold text-white mb-4">Cloud & Automation</h4>
-                <div class="flex flex-wrap gap-2">
-                    <span class="tech-chip text-white border-brand-primary/40">Agentic AI</span>
-                    <span class="tech-chip">Azure DevOps</span>
-                    <span class="tech-chip">GitHub Actions</span>
-                    <span class="tech-chip">AWS / DigitalOcean</span>
-                    <span class="tech-chip">Docker / CI CD</span>
-                    <span class="tech-chip">Automation</span>
+
+                <div class="exp-content">
+                    <div class="exp-meta">
+                        <span class="exp-date">{{ exp.date }}</span>
+                        <span class="exp-type">{{ exp.type }}</span>
+                    </div>
+                    <h3 class="exp-company">{{ exp.company }}</h3>
+                    <h4 class="exp-role">{{ exp.role }}</h4>
+                    <p class="exp-description">{{ exp.description }}</p>
+                    <div class="exp-highlights" *ngIf="exp.highlights.length > 0">
+                        <div class="exp-highlight" *ngFor="let h of exp.highlights">
+                            <span class="exp-arrow">▹</span>
+                            <span>{{ h }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Career Roadmap (Experience Block) -->
-<section id="experience" class="py-24 bg-surface-950 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="mb-20">
-            <h2 class="text-xs font-mono font-bold text-brand-primary uppercase tracking-[0.3em] mb-4">The Track Record</h2>
-            <h3 class="text-4xl md:text-5xl font-black text-white">Engineering Experience</h3>
-        </div>
 
-        <div class="space-y-12">
-            <!-- Sparqal Systems (Founder) -->
-            <div class="relative pl-12 border-l-2 border-brand-primary/20 hover:border-brand-primary/50 transition-colors group pb-12">
-                <div class="absolute left-[-11px] top-0 w-5 h-5 bg-surface-950 border-2 border-brand-primary rounded-full group-hover:scale-125 transition-transform shadow-[0_0_15px_rgba(16,185,129,0.3)]"></div>
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                    <div>
-                        <h4 class="text-2xl font-bold text-white group-hover:text-brand-primary transition-colors">Sparqal Systems</h4>
-                        <p class="text-gray-500 font-mono text-sm uppercase">Founder & Full-Stack Developer · Agentic AI & SaaS</p>
-                    </div>
-                    <span class="px-4 py-1.5 bg-brand-primary/10 border border-brand-primary/30 rounded-full text-xs text-brand-primary font-mono font-bold">Dec 2025 — Present</span>
-                </div>
-                <div class="text-gray-400 leading-relaxed max-w-4xl space-y-4">
-                    <p>
-                        Founded a tech agency specialized in <span class="text-white">enterprise-grade SaaS</span> and <span class="text-white">Agentic AI automation</span>. 
-                        Architected <span class="text-brand-primary">Sparqal Orbit</span>, a multi-tenant platform for Instagram automation and AI content scheduling.
-                    </p>
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
-                        <li class="flex items-start gap-2"><span class="text-brand-primary">▹</span> VPC-isolated multi-tenant architectures (AWS/DigitalOcean)</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-primary">▹</span> Built InnerDesk CRM (React/Node.js) & Real Estate systems</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-primary">▹</span> Multi-agent systems for autonomous AI workflows</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-primary">▹</span> Global delivery for LegalTech, FinTech, and E-commerce</li>
-                    </ul>
-                </div>
-            </div>
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PROJECTS SECTION — 3D Tilt cards with depth perception             -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section id="projects" class="projects-section" #projectsSection>
+    <div class="section-header" #projHeader>
+        <span class="section-tag">CASE STUDIES</span>
+        <h2 class="section-title">
+            Enterprise <span class="text-gradient">Portfolio</span>
+        </h2>
+    </div>
 
-            <!-- Utterwise -->
-            <div class="relative pl-12 border-l-2 border-white/5 hover:border-brand-primary/50 transition-colors group pb-12">
-                <div class="absolute left-[-11px] top-0 w-5 h-5 bg-surface-950 border-2 border-gray-700 rounded-full group-hover:border-brand-primary transition-colors"></div>
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                    <div>
-                        <h4 class="text-2xl font-bold text-white group-hover:text-brand-primary transition-colors">Utterwise Technologies</h4>
-                        <p class="text-gray-500 font-mono text-sm uppercase">Senior Software Engineer · FinTech Infrastructure</p>
-                    </div>
-                    <span class="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-gray-400 font-mono">Aug 2025 — Dec 2025</span>
+    <div class="projects-grid">
+        <!-- Sparqal Orbit — Featured -->
+        <div class="project-card project-featured" #projectCard
+            (mousemove)="onProjectTilt($event, 0)"
+            (mouseleave)="onProjectTiltReset(0)">
+            <div class="project-card-inner" #projectInner0>
+                <div class="project-glow"></div>
+                <div class="project-badge">FEATURED</div>
+                <div class="project-header">
+                    <h3 class="project-name">Sparqal Orbit</h3>
+                    <p class="project-type">Multi-Tenant SaaS Platform</p>
                 </div>
-                <p class="text-gray-400 leading-relaxed max-w-4xl mb-4">
-                    Led the large-scale <span class="text-white">restructuring of a legacy banking platform</span> for JJIT Fintech. 
-                    Redesigned core modules for improved horizontal scalability and strict financial compliance. 
-                    Consulted directly with stakeholders to align modern tech stacks with complex banking workflows.
+                <p class="project-desc">
+                    A robust Multi-tenant SaaS for Instagram DM automation and AI-powered content scheduling.
+                    Engineered with Angular and Node.js, deployed on DigitalOcean with complex VPC isolation for enterprise security.
                 </p>
-            </div>
-
-            <!-- Xperate -->
-            <div class="relative pl-12 border-l-2 border-white/5 hover:border-brand-primary/50 transition-colors group pb-12">
-                <div class="absolute left-[-11px] top-0 w-5 h-5 bg-surface-950 border-2 border-gray-700 rounded-full group-hover:border-brand-primary transition-colors"></div>
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                    <div>
-                        <h4 class="text-2xl font-bold text-white group-hover:text-brand-primary transition-colors">Xperate Systems</h4>
-                        <p class="text-gray-500 font-mono text-sm uppercase">Senior Software Developer · LegalTech & Enterprise</p>
-                    </div>
-                    <span class="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-gray-400 font-mono">Dec 2022 — May 2025</span>
+                <div class="project-tags">
+                    <span class="project-tag">Node.js</span>
+                    <span class="project-tag">Angular</span>
+                    <span class="project-tag">Multi-tenant</span>
+                    <span class="project-tag">DigitalOcean</span>
                 </div>
-                <div class="text-gray-400 leading-relaxed max-w-4xl space-y-4">
-                    <p>
-                        Delivered 8+ production-ready solutions for global law firms. Facilitated the transition from <span class="text-white">VB.NET to .NET 9</span> for high-scale customer portals.
-                    </p>
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
-                        <li class="flex items-start gap-2"><span class="text-brand-primary">▹</span> 5-stage Payment Approval system with Windows Auth</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-primary">▹</span> Speech Processing middleware (SpeechLive/Actionstep)</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-primary">▹</span> Internal Revenue Forecasting & Automated Billing systems</li>
-                        <li class="flex items-start gap-2"><span class="text-brand-primary">▹</span> RPA automation for mass account requests</li>
-                    </ul>
+                <div class="project-meta-row">
+                    <span class="project-hash">#Scalability</span>
+                    <span class="project-hash">#SaaS</span>
+                    <span class="project-hash">#Architecture</span>
                 </div>
             </div>
+        </div>
 
-            <!-- Siddhatech -->
-            <div class="relative pl-12 border-l-2 border-white/5 hover:border-brand-primary/50 transition-colors group">
-                <div class="absolute left-[-11px] top-0 w-5 h-5 bg-surface-950 border-2 border-gray-700 rounded-full group-hover:border-brand-primary transition-colors"></div>
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                    <div>
-                        <h4 class="text-2xl font-bold text-white group-hover:text-brand-primary transition-colors">Siddhatech Software Services</h4>
-                        <p class="text-gray-500 font-mono text-sm uppercase">Software Developer · Angular & Vue.js Ecosystem</p>
-                    </div>
-                    <span class="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-gray-400 font-mono">Oct 2021 — Dec 2022</span>
+        <!-- V&S Apparel -->
+        <div class="project-card" #projectCard
+            (mousemove)="onProjectTilt($event, 1)"
+            (mouseleave)="onProjectTiltReset(1)">
+            <div class="project-card-inner" #projectInner1>
+                <div class="project-glow"></div>
+                <div class="project-header">
+                    <h3 class="project-name">V&S Apparel</h3>
+                    <p class="project-type">E-Commerce Engine</p>
                 </div>
-                <p class="text-gray-400 leading-relaxed max-w-4xl">
-                    Engineered frontend architectures for HRMS, Finance, and Logistics sectors. 
-                    Modernized legacy <span class="text-white">AngularJS platforms to Vue.js</span> for top-tier financial clients. 
-                    Implemented <span class="text-white">Cypress E2E suites</span> to ensure mission-critical stability for global cargo platforms.
+                <p class="project-desc">
+                    Full-stack multi-tenant e-commerce engine deployed on AWS EC2. Features IP-based geo-routing
+                    and integrated WhatsApp lead generation for global market penetration.
                 </p>
+                <div class="project-tags">
+                    <span class="project-tag">AWS EC2</span>
+                    <span class="project-tag">Geo-routing</span>
+                    <span class="project-tag">DB Partitioning</span>
+                </div>
             </div>
         </div>
 
-    </div>
-</section>
-
-<!-- Project Spotlights (Case Studies) -->
-<section id="projects" class="py-24 bg-surface-900 border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="mb-20">
-            <h2 class="text-xs font-mono font-bold text-brand-primary uppercase tracking-[0.3em] mb-4">Project Case Studies</h2>
-            <h3 class="text-4xl md:text-5xl font-black text-white">Enterprise Portfolio</h3>
-        </div>
-
-        <div class="grid grid-cols-1 gap-12">
-            <!-- Project 1: Sparqal Orbit -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-surface-950 border border-white/10 rounded-[2rem] p-8 lg:p-12 group hover:border-brand-primary/20 transition-all">
-                <div class="relative rounded-2xl overflow-hidden aspect-video bg-surface-800 border border-white/5">
-                    <img src="https://placehold.co/1200x675/111/444?text=Sparqal+Orbit" alt="Sparqal Orbit" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity">
-                    <div class="absolute inset-0 bg-gradient-to-t from-surface-950 to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 flex gap-2">
-                        <span class="tech-chip bg-surface-900/80 backdrop-blur-md">Node.js</span>
-                        <span class="tech-chip bg-surface-900/80 backdrop-blur-md">Multi-tenant</span>
-                    </div>
+        <!-- InnerDesk CRM -->
+        <div class="project-card" #projectCard
+            (mousemove)="onProjectTilt($event, 2)"
+            (mouseleave)="onProjectTiltReset(2)">
+            <div class="project-card-inner" #projectInner2>
+                <div class="project-glow"></div>
+                <div class="project-header">
+                    <h3 class="project-name">InnerDesk CRM</h3>
+                    <p class="project-type">Operations Platform</p>
                 </div>
-                <div class="space-y-6">
-                    <h4 class="text-3xl font-bold text-white">Sparqal Orbit</h4>
-                    <p class="text-gray-400 leading-relaxed">
-                        A robust <span class="text-white">Multi-tenant SaaS</span> for Instagram DM automation and AI-powered content scheduling. 
-                        Engineered with <span class="text-white">Angular</span> and <span class="text-white">Node.js</span>, deployed on <span class="text-white">DigitalOcean</span>. 
-                        Features complex VPC isolation for high-security enterprise clients.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-500 uppercase">
-                        <span>#Scalability</span>
-                        <span>#SaaS</span>
-                        <span>#SystemArchitecture</span>
-                    </div>
-                    <div class="pt-4">
-                        <button class="btn-primary-sm px-6 py-2.5 bg-brand-primary rounded-lg text-black font-bold text-sm hover:translate-x-2 transition-transform cursor-pointer">
-                            View Deep Dive ->
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 & 3 in Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- V&S Apparel -->
-                <div class="bg-surface-950 border border-white/10 rounded-[2rem] p-8 hover:border-brand-blue/30 transition-all flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-2xl font-bold text-white mb-4">V&S Apparel</h4>
-                        <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                            Full-stack <span class="text-white font-medium">multi-tenant e-commerce</span> engine deployed on <span class="text-white">AWS EC2</span>. 
-                            Features IP-based geo-routing and integrated <span class="text-white font-medium">WhatsApp lead generation</span> for global market penetration.
-                        </p>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="tech-chip">DB Partitioning</span>
-                        <span class="tech-chip">Geo-routing</span>
-                    </div>
-                </div>
-
-                <!-- InnerDesk CRM -->
-                <div class="bg-surface-950 border border-white/10 rounded-[2rem] p-8 hover:border-brand-primary/30 transition-all flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-2xl font-bold text-white mb-4">InnerDesk CRM</h4>
-                        <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                            Custom internal <span class="text-white font-medium">CRM & Operations platform</span>. Built with a modern 
-                            stack featuring <span class="text-white">React, Node.js, and MongoDB</span> to streamline agency workflows and client management.
-                        </p>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="tech-chip">React</span>
-                        <span class="tech-chip">MongoDB</span>
-                    </div>
+                <p class="project-desc">
+                    Custom internal CRM & Operations platform. Built with React, Node.js, and MongoDB
+                    to streamline agency workflows and client management.
+                </p>
+                <div class="project-tags">
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">MongoDB</span>
+                    <span class="project-tag">Node.js</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
