@@ -20,11 +20,18 @@ export class FooterComponent {
         });
     }
     openEmail(): void {
+        this.trackClick('Email Link');
         window.location.href = 'mailto:kaushal@mrkaushalshah.com';
     }
 
-    openWhatsApp(): void {
-        window.open('https://wa.me/919974442525', '_blank');
-      }
-    
+    openLinkedIn(): void {
+        this.trackClick('LinkedIn Link');
+        window.open('https://linkedin.com/in/mrkaushalshah', '_blank');
+    }
+
+    downloadResume(): void {
+        this.trackClick('Download Resume Button');
+        window.open('https://drive.google.com/file/d/1Kn7SNEy8aLcydYLJteR2JSz3yR9tNVNq/view', '_blank');
+    }
+
 }

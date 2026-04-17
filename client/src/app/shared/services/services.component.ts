@@ -10,7 +10,7 @@ import { GeolocationService } from 'src/app/services/geolocation.service';
   standalone: false,
 })
 export class ServicesComponent {
-  
+
   // High-Ticket Plans Configuration
   plans = [
     {

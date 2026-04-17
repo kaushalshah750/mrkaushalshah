@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   isMenuOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   scrollToSection(sectionId: string): void {
     this.isMenuOpen = false; // Mobile menu band kar do
@@ -38,7 +38,11 @@ export class HeaderComponent {
     }
   }
 
-  openWhatsApp(): void {
-    window.open('https://wa.me/919974442525', '_blank');
+  openLinkedIn(): void {
+    window.open('https://linkedin.com/in/mrkaushalshah', '_blank');
+  }
+
+  downloadResume(): void {
+    window.open('https://drive.google.com/file/d/1Kn7SNEy8aLcydYLJteR2JSz3yR9tNVNq/view', '_blank');
   }
 }

@@ -1,0 +1,45 @@
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.btn-primary-sm {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-brand-primary);
+    color: black;
+    font-weight: 800;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.02);
+        filter: brightness(1.1);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Glassmorphism subtle effect for cards */
+.card-premium {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* Stagger entries for tech chips if needed, but handled by tailwind usually */
